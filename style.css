@@ -1,0 +1,26 @@
+body {
+    background-color: black;
+    color: white; 
+}
+
+footer {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    background-color: #AE2323C7;
+    color: white;
+    padding: 20px 10%; 
+    position: relative; 
+}
+
+.logoPuc {
+    width: 150px;
+    height: 60px;
+    position: absolute;
+    left: 10%; 
+}
+
+.texto_informacoes {
+    
+    text-align: center; 
+}
