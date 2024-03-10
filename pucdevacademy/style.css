@@ -1,0 +1,127 @@
+body {
+    background-color: black;
+    color: white; 
+    height: 100vh; 
+    overflow-y: scroll;
+    position: relative; 
+
+}
+
+#content {
+    padding-top: 150px; 
+}
+
+/* NAVBAR */
+  
+#navbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1200; 
+    background-color: #000;
+}
+
+#navbar a {
+    color: #fffcfc;
+}
+
+#navbar a:hover {
+    color: #707070;
+}
+
+#navbar .active {
+    border-bottom: 1px solid #fffefe;
+}
+  
+.navbar-brand {
+    display: flex;
+}
+
+#navbar-items .navbar-nav {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    font-family: 'Saira Condensed';
+}
+
+#navbar-items .nav-item {
+    margin: 0 1em;
+}
+
+.cadastro-login {
+    background-color: purple;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.cadastro-login :hover{
+    background-color: black;
+}
+
+/* Corpo e Logo  */
+
+
+.brand img {
+    margin-top: 80px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    z-index: 1200;
+}
+
+.first-infos {
+    font-family: 'Saira Condensed';
+    font-size: 40px;
+    font-weight: 500;
+}
+  
+.first-infos p { 
+    text-align: right;
+}
+
+.first-infos .first-word {
+    color: #25DF7C; 
+}
+
+.first-infos .second-word{
+    color: #7742E8
+}
+
+.blue-square {
+    width: 590px; 
+    height: 300px; 
+    background-color: #82A8EF; 
+    margin-left: 62%; 
+    border-radius: 10px 0px 0px 10px;
+}
+
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    background-color: #AE2323C7;
+    color: white;
+    padding: 23px; 
+    width: 100%;
+}
+
+.logoPuc {
+    width: 150px;
+    height: 60px;
+    position: absolute;
+    left: 10%;
+}
+
+.texto_informacoes {
+    text-align: center; 
+    font-size: 100%;
+    font-family: sans-serif;
+}
