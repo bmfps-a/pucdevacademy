@@ -1,18 +1,14 @@
 body {
     background-color: black;
     color: white; 
-    margin-bottom: 100px; 
     height: 100vh; 
     overflow-y: scroll;
     position: relative; 
+
 }
 
 #content {
     padding-top: 150px; 
-}
-
-.brand img {
-    width: 200px;
 }
 
 /* NAVBAR */
@@ -21,7 +17,11 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1200; 
+    background-color: #000;
 }
 
 #navbar a {
@@ -29,7 +29,7 @@ body {
 }
 
 #navbar a:hover {
-    color: #7a7a7a;
+    color: #707070;
 }
 
 #navbar .active {
@@ -63,7 +63,17 @@ body {
     background-color: black;
 }
 
-/* First infos  */
+/* Corpo e Logo  */
+
+
+.brand img {
+    margin-top: 80px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    z-index: 1200;
+}
+
 .first-infos {
     font-family: 'Saira Condensed';
     font-size: 40px;
@@ -83,11 +93,11 @@ body {
 }
 
 .blue-square {
-    width: 600px; 
-    height: 500px; 
+    width: 590px; 
+    height: 300px; 
     background-color: #82A8EF; 
     margin-left: 62%; 
-    border-radius: 10px;
+    border-radius: 10px 0px 0px 10px;
 }
 
 
@@ -99,8 +109,7 @@ footer {
     align-items: center; 
     background-color: #AE2323C7;
     color: white;
-    padding: 20px 10%; 
-    bottom: 0;
+    padding: 23px; 
     width: 100%;
 }
 
