@@ -109,19 +109,28 @@ footer {
     align-items: center; 
     background-color: #AE2323C7;
     color: white;
-    padding: 23px; 
+    padding: 20px; 
     width: 100%;
 }
 
+footer p {
+    margin: 5px 0; 
+}
+
 .logoPuc {
+    flex: 1;
     width: 150px;
     height: 60px;
-    position: absolute;
-    left: 10%;
 }
 
 .texto_informacoes {
+    flex: 1;
     text-align: center; 
     font-size: 100%;
     font-family: sans-serif;
 }
+
+.mapa-hotmilk{
+    flex: 3;
+}
+
