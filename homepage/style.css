@@ -4,7 +4,6 @@ body {
     height: 100vh; 
     overflow-y: scroll;
     position: relative; 
-
 }
 
 #content {
@@ -52,7 +51,7 @@ body {
 }
 
 .cadastro-login {
-    background-color: purple;
+    background-color: #7742E8;
     color: rgb(0, 0, 0);
     font-weight: bold;
     padding: 10px 20px;

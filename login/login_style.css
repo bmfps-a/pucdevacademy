@@ -1,0 +1,39 @@
+body{
+    background-color: rgb(90, 86, 86);
+    font-family: 'Saira Condensed';
+}
+
+.button-container {
+    display: flex; /* Permite que os botões sejam exibidos lado a lado */
+}
+
+.custom-button {
+    background-color: #272721; /* Define a cor de fundo dos botões */
+    color: #fff; /* Define a cor do texto dos botões */
+    cursor: pointer; /* Altera o cursor do mouse para indicar que os botões são clicáveis */
+}
+
+.custom-button .active {
+    background-color: black;
+}
+
+.person-icon{
+    font-size: 50px;
+    position: relative;
+    left: 85px;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+.btn-login{
+    background-color: #7742E8;
+    border-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.btn-login:hover{
+    background-color: #4f26a7;
+    border-color: rgb(0, 0, 0);
+    color: white;
+}
