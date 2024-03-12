@@ -3,24 +3,62 @@ body{
     font-family: 'Saira Condensed';
 }
 
+.row{
+    margin-top: 7%;
+}
+
 .button-container {
-    display: flex; /* Permite que os botões sejam exibidos lado a lado */
+    display: flex; 
 }
 
-.custom-button {
-    background-color: #272721; /* Define a cor de fundo dos botões */
-    color: #fff; /* Define a cor do texto dos botões */
-    cursor: pointer; /* Altera o cursor do mouse para indicar que os botões são clicáveis */
+.btn-group input[type="radio"] {
+    display: none; /* Oculta os botões de rádio padrão */
 }
 
-.custom-button .active {
-    background-color: black;
+/* Remover estilos de hover */
+.btn-group label.btn:hover,
+.btn-group label.btn:focus {
+    background-color: #272721;
+    color: #fff; 
+    border-bottom: #fff;
+    padding-bottom: 10px;
 }
+
+/* Estilos gerais para os botões */
+.btn-group label.btn {
+    padding: 10px 20px; /* Adiciona preenchimento interno aos botões */
+    cursor: pointer; /* Altera o cursor do mouse */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave */
+    width: 120px; /* Define uma largura fixa para os botões */
+    text-align: center; /* Centraliza o texto dentro dos botões */
+}
+
+/* Estilos específicos para o botão "Colaborador" */
+.colaborador-btn {
+    background-color: #272721; /* Cor de fundo padrão para o botão "Colaborador" */
+    color: #fff; /* Cor do texto para o botão "Colaborador" */
+    border-right: 2px solid #ffffff; /* Adiciona uma borda sólida à direita */
+}
+  
+input[type="radio"].btn-check:checked + .colaborador-btn {
+    background-color: #0b0b0b; /* Altera a cor de fundo do botão "Colaborador" selecionado */
+}
+  
+  /* Estilos específicos para o botão "Empresa" */
+.empresa-btn {
+    background-color: #272721; /* Cor de fundo padrão para o botão "Empresa" */
+    color: #fff; /* Cor do texto para o botão "Empresa" */
+}
+  
+input[type="radio"].btn-check:checked + .empresa-btn {
+    background-color: #000000; /* Altera a cor de fundo do botão "Empresa" selecionado */
+}
+
 
 .person-icon{
     font-size: 50px;
     position: relative;
-    left: 85px;
+    left: 95px;
     padding: 0;
     margin: 0;
     color: white;
