@@ -5,23 +5,14 @@ body{
 
 .row{
     margin-top: 7%;
+    background-color:#272721;
+    color: #fff;
+    width: 300px;
+    height: 400px;
 }
 
 .button-container {
     display: flex; 
-}
-
-.btn-group input[type="radio"] {
-    display: none; /* Oculta os botões de rádio padrão */
-}
-
-/* Remover estilos de hover */
-.btn-group label.btn:hover,
-.btn-group label.btn:focus {
-    background-color: #272721;
-    color: #fff; 
-    border-bottom: #fff;
-    padding-bottom: 10px;
 }
 
 /* Estilos gerais para os botões */
@@ -31,29 +22,50 @@ body{
     transition: background-color 0.3s ease; /* Adiciona uma transição suave */
     width: 120px; /* Define uma largura fixa para os botões */
     text-align: center; /* Centraliza o texto dentro dos botões */
+    border-bottom: 2px solid #fff; /* Adiciona borda branca abaixo dos botões */
+}
+
+/* Adiciona borda entre os botões */
+.colaborador-btn {
+    border-right: 2px solid #ffffff; /* Adiciona uma borda sólida à direita */
+    border-left: none;
+    border-top: none;
 }
 
 /* Estilos específicos para o botão "Colaborador" */
 .colaborador-btn {
     background-color: #272721; /* Cor de fundo padrão para o botão "Colaborador" */
     color: #fff; /* Cor do texto para o botão "Colaborador" */
-    border-right: 2px solid #ffffff; /* Adiciona uma borda sólida à direita */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
-  
+
 input[type="radio"].btn-check:checked + .colaborador-btn {
     background-color: #0b0b0b; /* Altera a cor de fundo do botão "Colaborador" selecionado */
+    border-color: #ffffff; /* Mantém a borda branca quando selecionado */
 }
-  
-  /* Estilos específicos para o botão "Empresa" */
+
+/* Estilos específicos para o botão "Empresa" */
 .empresa-btn {
     background-color: #272721; /* Cor de fundo padrão para o botão "Empresa" */
     color: #fff; /* Cor do texto para o botão "Empresa" */
-}
-  
-input[type="radio"].btn-check:checked + .empresa-btn {
-    background-color: #000000; /* Altera a cor de fundo do botão "Empresa" selecionado */
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
+input[type="radio"].btn-check:checked + .empresa-btn {
+    background-color: #000000; /* Altera a cor de fundo do botão "Empresa" selecionado */
+    border-color: #ffffff; /* Mantém a borda branca quando selecionado */
+}
+
+/* Remover estilos de hover */
+.btn-group label.btn:hover,
+.btn-group label.btn:focus {
+    background-color: #272721; /* Mantém a cor de fundo padrão */
+    border: none;
+}
 
 .person-icon{
     font-size: 50px;
