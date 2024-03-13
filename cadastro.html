@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastros</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #171810;">
+    <div class="caixa">
+                <h1 class="titulo">Cadastro para Empresas</h1>
+                <form id="registrar">
+                    <div class="fEmpresa">
+                        <label for="nomeEmpresa">Nome da Empresa</label>
+                        <span class="mensagem" id="mensagem-nomeEmpresa"></span>
+                        <input type="text" class="form-control" id="nomeEmpresa" name="nomeEmpresa" pattern=".+" required maxlength="50">
+                    </div>
+                    <div class="fFicticio">
+                        <label for="nomeFic">Nome Fictício (Opcional)</label>
+                        <span class="mensagem" id="mensagem-nomeFic"></span>
+                        <input type="text" class="form-control" id="nomeFic" name="nomeFic" pattern="[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*" maxlength="50">
+                    </div>
+                    <div class="fCNPJ">
+                        <label for="cnpj">CNPJ</label>
+                        <span class="mensagem" id="mensagem-cnpj"></span>
+                        <input type="text" class="form-control" id="cnpj" name="cnpj" pattern="\d{2}\.\d{3}\.\d{3}/000[1-2]-\d{2}" required>
+                    </div>
+                    <div class="fRamo">
+                        <label for="ramo">Ramo Empresarial</label>
+                        <span class="mensagem" id="mensagem-ramo"></span>
+                        <input type="text" class="form-control" id="ramo" name="ramo" pattern="[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*" required maxlength="50">
+                    </div>
+                    <div class="fTelefone">
+                        <label for="tel">Telefone</label>
+                        <span class="mensagem" id="mensagem-tel"></span>
+                        <input type="text" class="form-control" id="tel" name="tel" pattern="(\(\d{2}\) \d{5}-\d{4}|(\d{2} [89]\d{4}-\d{4}))" required>
+                    </div>
+                    <div class="fRepresentante">
+                        <label for="nomeRepresentante">Nome do Representante</label>
+                        <span class="mensagem" id="mensagem-nomeRepresentante"></span>
+                        <input type="text" class="form-control" id="nomeRepresentante" name="nomeRepresentante" pattern="[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*" required maxlength="50">
+                    </div>
+                    <div class="fCPF">
+                        <label for="cpf">CPF</label>
+                        <span class="mensagem" id="mensagem-cpf"></span>
+                        <input type="text" class="form-control" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                    </div>
+                    <div class="fCargo">
+                        <label for="cargo">Cargo</label>
+                        <span class="mensagem" id="mensagem-cargo"></span>
+                        <input type="text" class="form-control" id="cargo" name="cargo" pattern="[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*" required maxlength="50">
+                    </div>
+                    <hr id="linhaCentral">
+                    <div class="fEmail">
+                        <label for="email">Email</label>
+                        <span class="mensagem" id="mensagem-email"></span>
+                        <input type="text" class="form-control" id="email" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required maxlength="50">
+                    </div>
+                    <div class="fSenha">
+                        <label for="senha">Senha</label>
+                        <span class="mensagem" id="mensagem-senha"></span>
+                        <input type="password" class="form-control" id="senha" pattern=".+" required maxlength="50">
+                    </div>
+                    <div class="fConfirmarSenha">
+                        <label for="confirmarSenha">Confirmar Senha</label>
+                        <span class="mensagem" id="mensagem-confirmarSenha"></span>
+                        <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" maxlength="50">
+                    </div>
+                    <div class="btn-criar">
+                        <button class="criarConta" type="button" onclick="enviar()">Criar Conta <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/validacao.js"></script>
+</body>
+</html>
