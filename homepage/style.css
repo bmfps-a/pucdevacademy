@@ -4,6 +4,14 @@ body {
     height: 100vh; 
     overflow-y: scroll;
     position: relative; 
+    display: grid; 
+    grid-template-areas:
+    "header header header"
+    "aside main main"
+    "footer footer footer";
+    grid-gap: 1rem; 
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto 100vh auto;
 }
 
 #content {
@@ -109,26 +117,33 @@ footer {
     background-color: #AE2323C7;
     color: white;
     padding: 20px;
+    grid-area: footer;
 }
 
 footer p {
-    margin: 5px 0;
-    text-align: center; /* Centraliza o texto */
+    margin: 5% 0;
+    text-align: center; 
+    grid-area: footer;
 }
 
 .logoPuc {
-    width: 150px;
-    height: 60px;
+    width: 30%;
+    height: 35%;
+    grid-area: footer;
+    
 }
 
 .texto_informacoes {
-    margin-top: 20px; /* Adiciona espaçamento superior */
-    text-align: center; /* Centraliza o texto */
+    grid-area: footer;
+    margin-right: 25%;
+    
+    
 }
 
 .mapa-hotmilk {
-    margin-top: 20px; /* Adiciona espaçamento superior */
+    /* margin-top: 20px;  Adiciona espaçamento superior */
     text-align: center; /* Centraliza o conteúdo */
+    grid-area: footer;
 }
 
 @media (min-width: 768px) {
