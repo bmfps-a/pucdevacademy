@@ -1,4 +1,4 @@
-/* body {
+body {
     background-color: black;
     color: white; 
     height: 100vh; 
@@ -12,16 +12,16 @@
     grid-gap: 1rem; 
     grid-template-columns: auto auto auto;
     grid-template-rows: auto 100vh auto;
-} */
+}
 
 #content {
     padding-top: 150px; 
 }
+
 /* NAVBAR */
   
 #navbar {
     background-color: #050505;
-    
 }
   
 #navbar a {
@@ -38,7 +38,7 @@
       
 #navbar-items .navbar-nav {
     display: flex;
-    justify-content: end;
+    justify-content: center;
     width: 100%;
 }
   
@@ -49,21 +49,7 @@
 .navbar-toggler {
     color: #ffffff; /* Cor do texto branco */
 }
-
-.cadastro-login {
-    background-color: #7742E8;
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-    padding: 10px 20px;
-    text-decoration: none;
-}
-
-.cadastro-login :hover{
-    background-color: black;
-}
-
 /* Corpo e Logo  */
-
 
 .brand img {
     margin-top: 80px;
@@ -121,48 +107,54 @@
     text-align: center; /* Centralizar o texto */
 }
 
+/* FOOTER */
+
 footer {
-    background-color: #cd0f0f;
-    padding: 20px 0;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Alterado para uma disposição em coluna em dispositivos pequenos */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    background-color: #AE2323C7;
+    color: white;
+    padding: 20px;
+    grid-area: footer;
+}
+
+footer p {
+    margin: 5% 0;
+    text-align: center; 
+    grid-area: footer;
 }
 
 .logoPuc {
-    max-width: 40%;
-    height: auto;
+    width: 30%;
+    height: 35%;
+    grid-area: footer;
+    
 }
 
-.texto_informacoes h5 {
-    margin-bottom: 10px;
-    text-align: center;
+.texto_informacoes {
+    grid-area: footer;
+    margin-right: 25%;
+    
+    
 }
 
 .mapa-hotmilk {
-    margin-top: 20px;
+    /* margin-top: 20px;  Adiciona espaçamento superior */
+    text-align: center; /* Centraliza o conteúdo */
+    grid-area: footer;
 }
 
 @media (min-width: 768px) {
-    footer .row {
-        display: flex;
-        justify-content: space-between;
+    /* Quando a largura da tela for maior ou igual a 768px */
+    footer {
+        flex-direction: row; /* Alterado para uma disposição em linha em dispositivos maiores */
+        justify-content: space-between; /* Distribui os itens igualmente na horizontal */
+        align-items: center; /* Centraliza os itens verticalmente */
     }
 
-    .texto_informacoes {
-        flex-grow: 1;
-        margin-left: 20px; /* Adicionando margem entre os itens */
+    .texto_informacoes, .mapa-hotmilk {
+        flex: 1; /* Os elementos ocuparão todo o espaço disponível */
     }
 }
 
-/* Estilos para a versão mobile (o padrão será empilhado verticalmente) */
-@media (max-width: 767px) {
-    footer .row {
-        flex-direction: column;
-    }
-    .texto_informacoes {
-        margin-top: 20px; /* Adicionando margem superior entre os itens */
-    }
-    .mapa-hotmilk iframe {
-        height: 150px;
-    }
-}   
