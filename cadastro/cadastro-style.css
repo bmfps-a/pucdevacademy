@@ -31,17 +31,19 @@ form{
     font-size: 14px;
 }
 .caixa{
-    width: 50%;
+    width: 70%;
     margin: auto;
 }   
 .criarConta {
     width: 50%; 
     border-radius: 10px; 
+    font-size: 30px;
     margin: auto; 
     display: block; 
     background-color: #7742E8;
     border: 2px solid #7742E8; 
     color: white; 
+    padding: 10px 20px;
 }
 
 .btn-criar{
@@ -49,4 +51,17 @@ form{
     padding-bottom: 10%;
     width: 100%;
 }
+.col
 
+{
+    width: 50%;
+}
+#confirmarsenha{
+    width:50% ;
+}
+.titulo{
+    padding-bottom: 4%;
+}
+input.form-control {
+    font-size: 20px; 
+}
