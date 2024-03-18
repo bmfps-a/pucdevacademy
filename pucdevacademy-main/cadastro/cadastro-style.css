@@ -1,0 +1,67 @@
+
+.titulo{
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    padding-top: 5%;
+}
+form{
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    color: white;
+
+}
+#linhaCentral{
+    margin-top: 7%;
+    width: 100%;
+    color:white
+
+}
+#flecha{
+    margin-left: 10px;
+}
+.mensagem {
+    margin-left: 7px;
+    color: red; 
+    font-size: 14px;
+}
+.caixa{
+    width: 70%;
+    margin: auto;
+}   
+.criarConta {
+    width: 50%; 
+    border-radius: 10px; 
+    font-size: 30px;
+    margin: auto; 
+    display: block; 
+    background-color: #7742E8;
+    border: 2px solid #7742E8; 
+    color: white; 
+    padding: 10px 20px;
+}
+
+.btn-criar{
+    padding-top: 7%;
+    padding-bottom: 10%;
+    width: 100%;
+}
+.col
+
+{
+    width: 50%;
+}
+#confirmarsenha{
+    width:50% ;
+}
+.titulo{
+    padding-bottom: 4%;
+}
+input.form-control {
+    font-size: 20px; 
+}
