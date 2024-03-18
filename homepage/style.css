@@ -1,27 +1,17 @@
-/* body {
-    background-color: black;
-    color: white; 
-    height: 100vh; 
-    overflow-y: scroll;
-    position: relative; 
-    display: grid; 
-    grid-template-areas:
-    "header header header"
-    "aside main main"
-    "footer footer footer";
-    grid-gap: 1rem; 
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto 100vh auto;
-} */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #050505;
+}
 
 #content {
-    padding-top: 150px; 
+    padding-top: 100px; 
 }
 /* NAVBAR */
   
 #navbar {
     background-color: #050505;
-    
 }
   
 #navbar a {
@@ -64,39 +54,10 @@
 
 /* Corpo e Logo  */
 
-
-.brand img {
-    margin-top: 80px;
-    width: 400px;
-    display: flex;
-    align-items: center;
-    z-index: 1200;
-}
-
-.first-infos {
-    font-family: 'Saira Condensed';
-    font-size: 40px;
-    font-weight: 500;
-}
-  
-.first-infos p { 
-    text-align: right;
-}
-
-.first-infos .first-word {
-    color: #25DF7C; 
-}
-
-.first-infos .second-word{
-    color: #7742E8
-}
-
-.blue-square {
-    width: 590px; 
-    height: 300px; 
-    background-color: #82A8EF; 
-    margin-left: 62%; 
-    border-radius: 10px 0px 0px 10px;
+.brand-img {
+    width: 30%;
+    height: auto;
+    margin-top: 50%;
 }
 
 /* Estilo para a seção "Sobre Nós" */
@@ -121,21 +82,31 @@
     text-align: center; /* Centralizar o texto */
 }
 
+
+/* FOOTER */
 footer {
     background-color: #cd0f0f;
     padding: 20px 0;
     display: flex;
     justify-content: space-between;
+    color: #ffffff;
+    margin-top: auto;
+}
+
+.footer .row > div {
+    text-align: center;
+    padding: 10px; /* Adicione o espaçamento que desejar */
 }
 
 .logoPuc {
-    max-width: 40%;
+    width: 40%;
     height: auto;
 }
 
 .texto_informacoes h5 {
     margin-bottom: 10px;
-    text-align: center;
+    font-size: large;
+    font-family: sans-serif;
 }
 
 .mapa-hotmilk {
@@ -152,6 +123,11 @@ footer {
         flex-grow: 1;
         margin-left: 20px; /* Adicionando margem entre os itens */
     }
+
+    .mapa-hotmilk iframe {
+        height: 150px;
+        width: 70%;
+    }
 }
 
 /* Estilos para a versão mobile (o padrão será empilhado verticalmente) */
@@ -165,4 +141,10 @@ footer {
     .mapa-hotmilk iframe {
         height: 150px;
     }
+
+    .logoPuc{
+        max-width: 30%;
+    }
 }   
+
+
