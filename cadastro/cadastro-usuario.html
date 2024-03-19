@@ -43,8 +43,8 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="telefone">Telefone</label>
-                        <span class="mensagem" id="mensagem-telefone"></span>
-                        <input type="tel" class="form-control" id="telefone" name="telefone" pattern="(\(\d{2}\) \d{5}-\d{4}|(\d{2} [89]\d{4}-\d{4}))" required>
+                        <span class="mensagem" id="mensagem-tel"></span>
+                        <input type="tel" class="form-control" id="tel" name="telefone" pattern="(\(\d{2}\) \d{5}-\d{4}|(\d{2} [89]\d{4}-\d{4}))" required>
                     </div>
                 </div>
                 <hr>
@@ -52,16 +52,16 @@
                     <div class="col-lg-6">
                         <label for="senha">Senha</label>
                         <span class="mensagem" id="mensagem-senha"></span>
-                        <input type="password" class="form-control" id="senha" pattern=".{6,}" required>
+                        <input type="password" class="form-control" id="senha" pattern=".+" required>
                     </div>
                     <div class="col-lg-6">
                         <label for="confirmarSenha">Confirmar Senha</label>
                         <span class="mensagem" id="mensagem-confirmarSenha"></span>
-                        <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" pattern=".{6,}" required>
+                        <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" pattern=".+" required>
                     </div>
                 </div>
                 <div class="btn-criar">
-                    <button class="criarConta" type="submit">Cadastrar <i class="fas fa-arrow-right"></i></button>
+                    <button class="criarConta" type="submit" onclick="enviar()">Cadastrar <i class="fas fa-arrow-right"></i></button>
                 </div>
             </form>
         </div>
@@ -69,6 +69,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/validacao.js"></script>
+    <script src="../js/validacaouser.js"></script>
 </body>
 </html>
