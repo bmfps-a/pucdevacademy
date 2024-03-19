@@ -1,3 +1,14 @@
+body{
+    background-color: #171810;
+
+}
+
+.caixa {
+    background-color: #333333; /* Cor escura para o fundo da caixa */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
 
 .titulo{
     font-family: "Saira Condensed", sans-serif;
@@ -9,11 +20,13 @@
     padding-top: 5%;
 }
 form{
+    background-color: #333333;
     font-family: "Saira Condensed", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
     color: white;
+    margin-top: 20px;
 
 }
 #linhaCentral{
@@ -50,9 +63,46 @@ form{
     padding-top: 7%;
     padding-bottom: 10%;
     width: 100%;
+    
+}
+
+.btn-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #7742E8;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid #7742E8;
+    border-radius: 10px;
+    font-family: "Saira Condensed", sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .btn-voltar {
+        position: static;
+        display: block;
+        width: 100%;
+        max-width: 200px;
+        margin: 20px auto; 
+    }
+
+    .caixa {
+        margin-top: 20px; 
+    }
+
+    form {
+        margin-top: 20px; 
+    }
+
+    input.form-control {
+        margin-bottom: 10px;
+    }
 }
 .col
-
 {
     width: 50%;
 }
@@ -65,3 +115,4 @@ form{
 input.form-control {
     font-size: 20px; 
 }
+
