@@ -5,14 +5,10 @@ body {
     background-color: black;
 }
 
-#content {
-    padding-top: 100px; 
-}
-
 
 /* NAVBAR */
 #navbar {
-    background-color: #050505;
+    background-color: none;
 }
   
 #navbar a {
@@ -60,40 +56,72 @@ body {
 
 /* Corpo e Logo  */
 
-.brand-img {
-    width: 30%;
+.logo {
+    width: 25%;
     height: auto;
-    margin-top: 50%;
+    margin-top: 50px;
+}
+
+.wellcome-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 100px;
+}
+
+.wellcome-body p{
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 36px;
+    padding-bottom: 20%;
+    color: #ffffff;
+}
+
+.cor-verde {
+    color: #25DF7C; 
+}
+
+.cor-roxa{
+    color: #7742E8;
 }
 
 /* Estilo para a seção "Sobre Nós" */
-.about-us {
-    background-color: #333; 
-    color: #fff; 
-    padding: 10px 20px; 
-    border-radius: 10px; 
-    margin: 20px; 
+
+.pc-img{
+    width: 60%;
+    height: auto;
 }
 
-.about-us h2 {
+.about-us {
+    color: #fff; 
+    padding: 10px 20px; 
+    margin: 20px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-us .container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+}
+
+.about-us h2{
     font-family: 'Saira Condensed', sans-serif; 
     font-size: 36px; 
     text-align: center; 
     margin-bottom: 40px; 
+    padding-left: 45%;
 }
 
-.about-us p {
-    font-size: 20px; 
-    line-height: 1.6; 
-    text-align: left;
-    max-width: 50%; 
-    word-wrap: break-word;
+.about-us p{
+    font-family: 'Saira Condensed', sans-serif; 
+    font-size: 20px;
 }
 
 .campus-img{
     float: right; 
-    margin-top: -50px;
-    margin-right: 100px;
     border-radius: 7px;
 }    
 
