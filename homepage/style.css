@@ -64,7 +64,7 @@ body {
 .about-us {
     background-color: #333; /* Cor de fundo */
     color: #fff; /* Cor do texto */
-    padding: 80px 20px; /* Preenchimento superior e inferior */
+    padding: 10px 20px; /* Preenchimento superior e inferior */
     border-radius: 10px; /* Arredondamento das bordas */
     margin: 20px; /* Margem externa */
 }
@@ -79,8 +79,17 @@ body {
 .about-us p {
     font-size: 20px; /* Tamanho do texto */
     line-height: 1.6; /* Altura da linha */
-    text-align: center; /* Centralizar o texto */
+    text-align: left; /* Centralizar o texto */
+    max-width: 50%; /* Define o valor máximo desejado para a largura do parágrafo */
+    word-wrap: break-word; /* Quebra as palavras que não cabem na largura especificada */
 }
+
+.campus-img{
+    float: right; /* Faz com que a imagem flutue para a direita */
+    margin-top: -50px;
+    margin-right: 100px;
+    border-radius: 7px;
+}    
 
 
 /* FOOTER */
