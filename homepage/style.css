@@ -2,14 +2,15 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #050505;
+    background-color: black;
 }
 
 #content {
     padding-top: 100px; 
 }
+
+
 /* NAVBAR */
-  
 #navbar {
     background-color: #050505;
 }
@@ -37,19 +38,24 @@ body {
 }
 
 .navbar-toggler {
-    color: #ffffff; /* Cor do texto branco */
+    color: #ffffff; 
 }
 
-.cadastro-login {
+.btn-primary {
     background-color: #7742E8;
-    color: rgb(0, 0, 0);
     font-weight: bold;
     padding: 10px 20px;
     text-decoration: none;
+    border: none;
 }
 
-.cadastro-login :hover{
-    background-color: black;
+.btn-primary:hover {
+    background-color: #7742E8; 
+}
+
+.btn-primary:active {
+    background-color: #7742E8;
+    border: none;
 }
 
 /* Corpo e Logo  */
@@ -62,30 +68,30 @@ body {
 
 /* Estilo para a seção "Sobre Nós" */
 .about-us {
-    background-color: #333; /* Cor de fundo */
-    color: #fff; /* Cor do texto */
-    padding: 10px 20px; /* Preenchimento superior e inferior */
-    border-radius: 10px; /* Arredondamento das bordas */
-    margin: 20px; /* Margem externa */
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px 20px; 
+    border-radius: 10px; 
+    margin: 20px; 
 }
 
 .about-us h2 {
-    font-family: 'Saira Condensed', sans-serif; /* Fonte do título */
-    font-size: 36px; /* Tamanho do título */
-    text-align: center; /* Centralizar o texto */
-    margin-bottom: 40px; /* Espaçamento inferior */
+    font-family: 'Saira Condensed', sans-serif; 
+    font-size: 36px; 
+    text-align: center; 
+    margin-bottom: 40px; 
 }
 
 .about-us p {
-    font-size: 20px; /* Tamanho do texto */
-    line-height: 1.6; /* Altura da linha */
-    text-align: left; /* Centralizar o texto */
-    max-width: 50%; /* Define o valor máximo desejado para a largura do parágrafo */
-    word-wrap: break-word; /* Quebra as palavras que não cabem na largura especificada */
+    font-size: 20px; 
+    line-height: 1.6; 
+    text-align: left;
+    max-width: 50%; 
+    word-wrap: break-word;
 }
 
 .campus-img{
-    float: right; /* Faz com que a imagem flutue para a direita */
+    float: right; 
     margin-top: -50px;
     margin-right: 100px;
     border-radius: 7px;
@@ -104,7 +110,7 @@ footer {
 
 .footer .row > div {
     text-align: center;
-    padding: 10px; /* Adicione o espaçamento que desejar */
+    padding: 10px; 
 }
 
 .logoPuc {
@@ -130,7 +136,7 @@ footer {
 
     .texto_informacoes {
         flex-grow: 1;
-        margin-left: 20px; /* Adicionando margem entre os itens */
+        margin-left: 20px; 
     }
 
     .mapa-hotmilk iframe {
@@ -145,7 +151,7 @@ footer {
         flex-direction: column;
     }
     .texto_informacoes {
-        margin-top: 20px; /* Adicionando margem superior entre os itens */
+        margin-top: 20px; 
     }
     .mapa-hotmilk iframe {
         height: 150px;
@@ -156,4 +162,11 @@ footer {
     }
 }   
 
-
+.btn-login {
+    background-color: #7742E8;
+    font-weight: bold;
+    padding: 10px 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-left: 50px;
+}

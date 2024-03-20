@@ -44,7 +44,7 @@ function enviar() {
         console.log(document.getElementById("email").value)
         console.log(document.getElementById("senha").value)
         console.log(document.getElementById("confirmarSenha").value)
-        let form = document.getElementById("registro")
+        let form = document.getElementById("registrar")
         form.submit
     }
 }
