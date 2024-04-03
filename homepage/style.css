@@ -27,6 +27,7 @@ body {
     display: flex;
     justify-content: end;
     width: 100%;
+    gap: 10px
 }
   
 #navbar-items .nav-item {
@@ -52,6 +53,14 @@ body {
 .btn-primary:active {
     background-color: #7742E8;
     border: none;
+}
+
+.btn-login {
+    background-color: #7742E8;
+    font-weight: bold;
+    padding: 10px 10px;
+    text-decoration: none;
+    border-radius: 10px;
 }
 
 /* Corpo e Logo  */
@@ -100,6 +109,7 @@ body {
     color: #fff; 
     padding: 10px 20px; 
     margin: 20px; 
+    margin-bottom: 20%;
 }
 
 .about-us .container {
@@ -186,31 +196,32 @@ footer {
     .mapa-hotmilk iframe {
         height: 150px;
     }
-
     .logoPuc{
-        max-width: 30%;
+        max-width: 50%;
     }
-
     .about-us .container {
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        margin-left: 45px;
     }
-
     .campus-img{
         width: 100%;
-    }
-    
+        margin-top: 50px;
+        margin-right: 25%;
+    } 
     .about-us p{
         text-align: justify;
+        align-content: left;
+    }
+    #navbar {
+        background-color: black;
+    }
+    .showroom{
+        margin-top: 15%;
+    }
+    .logo{
+        width: 50%;
     }
 }   
 
-.btn-login {
-    background-color: #7742E8;
-    font-weight: bold;
-    padding: 10px 10px;
-    text-decoration: none;
-    border-radius: 10px;
-    margin-left: 50px;
-}
