@@ -1,0 +1,57 @@
+CREATE TABLE Empresa (
+    cnpj VARCHAR(20) PRIMARY KEY,
+    nome_empresa VARCHAR(100) NOT NULL,
+    nome_fantasia VARCHAR(100) DEFAULT 'nome_empresa',
+    ramo_empresarial VARCHAR(100),
+    telefone VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Projeto (
+    id_projeto INT PRIMARY KEY,
+    descricao VARCHAR(1000),
+    nome_projeto VARCHAR(50),
+    fk_Empresa_cnpj VARCHAR(20)
+);
+
+CREATE TABLE Funcionario (
+    cpf VARCHAR(20) PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    cargo VARCHAR(50),
+    email VARCHAR(50) NOT NULL,
+    senha VARCHAR(50) NOT NULL,
+    fk_Empresa_cnpj VARCHAR(20)
+);
+
+CREATE TABLE Colaborador_puc (
+    cpf VARCHAR(20) PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    ra VARCHAR(20) NOT NULL,
+    telefone VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE faz (
+    fk_Colaborador_puc_cpf VARCHAR(20),
+    fk_Projeto_id_projeto INT
+);
+ 
+ALTER TABLE Projeto ADD CONSTRAINT FK_Projeto_2
+    FOREIGN KEY (fk_Empresa_cnpj)
+    REFERENCES Empresa (cnpj)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Funcionario ADD CONSTRAINT FK_Funcionario_2
+    FOREIGN KEY (fk_Empresa_cnpj)
+    REFERENCES Empresa (cnpj)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE faz ADD CONSTRAINT FK_faz_1
+    FOREIGN KEY (fk_Colaborador_puc_cpf)
+    REFERENCES Colaborador_puc (cpf)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE faz ADD CONSTRAINT FK_faz_2
+    FOREIGN KEY (fk_Projeto_id_projeto)
+    REFERENCES Projeto (id_projeto)
+    ON DELETE RESTRICT;
+    
