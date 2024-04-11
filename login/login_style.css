@@ -7,7 +7,7 @@ body{
     background-color:#272721;
     color: #fff;
     width: 300px;
-    height: 400px;
+    height: 424px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -126,3 +126,6 @@ input[type="radio"].btn-check:checked + .empresa-btn {
 #criarConta:hover {
     text-decoration: underline;
   }
+#descsenha{
+    font-size: 10px;
+}  

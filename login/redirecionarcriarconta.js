@@ -1,8 +1,9 @@
 function redirecionar() {
     if (document.getElementById('empresa').checked) {
-        window.location.href = '/cadastro/cadastro.html';
+        window.location.href = '../cadastro/cadastro.php';
     } else {
-        window.location.href = '/cadastro/cadastro-usuario.html';
+        window.location.href = '../cadastro/cadastro-usuario.php';
     }
 }
-document.getElementById('redirecionar').addEventListener('click', redirecionar);   
+
+document.getElementById('criarConta').addEventListener('click', redirecionar);
