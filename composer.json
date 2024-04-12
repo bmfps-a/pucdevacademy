@@ -1,0 +1,17 @@
+{
+    "name": "pedro/pucdevacademy",
+    "autoload": {
+        "psr-4": {
+          "App\\": "app/"
+        }
+      },
+    "require": {
+      "php": "^7.4"
+    },
+    "authors": [
+      {
+        "name": "Pedro Felix",
+        "email": "pfelix0825@gmail.com"
+      }
+    ]
+  }
