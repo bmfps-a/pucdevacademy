@@ -56,10 +56,10 @@
     <!-- Corpo e Logo -->
     <section class="showroom">    
         <div class="container" id="content">
-            <img src="imagens/LOGO2" alt="Logo" class="logo">
+            <img src="../imagens/LOGO2.png" alt="Logo" class="logo">
         </div>
         <div class="wellcome-body">
-        <img src="imagens/PC_ep.png" alt="pc" class="pc-img">
+        <img src="../imagens/PC_ep.png" alt="pc" class="pc-img">
             <p><span class="cor-verde">Conectando</span> o talento <span class="cor-roxa">acadêmico</span> às <br>
                 oportunidades do<span class="cor-roxa"> mercado de trabalho.</span></p>
         </div>
@@ -81,7 +81,7 @@
                         fortalece laços comunitários e inspira uma abordagem de
                         aprendizado prático e solidário.</p>
             </div>
-            <img src="/imagens/campus.jpg" alt="campus" class="campus-img" width="405" height="270">
+            <img src="../imagens/campus.jpg" alt="campus" class="campus-img" width="405" height="270">
         </div>
     </section>
 
@@ -89,7 +89,7 @@
     <footer class="container-fluid" id="contact">
         <div class="row align-items-center">
             <div class="col-md-4 text-center">
-                <img class="logoPuc" src="/imagens/logo_pucpr_horizontal_monocromatico.png" alt="logoPUCPR">
+                <img class="logoPuc" src="../imagens/logo_pucpr_horizontal_monocromatico.png" alt="logoPUCPR">
             </div>
             <div class="col-md-4 text-center">
                 <div class="texto_informacoes">
