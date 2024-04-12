@@ -35,6 +35,7 @@ function enviar() {
         console.log("Valores: ")
         console.log(document.getElementById("nome").value)
         console.log(document.getElementById("cpf").value)
+        console.log(document.getElementById("ra").value)
         console.log(document.getElementById("tel").value)
         console.log(document.getElementById("email").value)
         console.log(document.getElementById("senha").value)
@@ -50,6 +51,6 @@ $(document).ready(function() {
         greedy: false
     });
     $('#cpf').inputmask('999.999.999-99');
-        
+    $('#ra').inputmask('99999999');
     $('#tel').inputmask('(99) 99999-9999');   
 });

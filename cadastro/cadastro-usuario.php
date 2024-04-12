@@ -38,6 +38,11 @@
                         <input type="text" class="form-control" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
                     </div>
                     <div class="col-lg-6">
+                        <label for="ra">RA</label>
+                        <span class="mensagem" id="mensagem-ra"></span>
+                        <input type="text" class="form-control" id="ra" name="ra" pattern="\d{8}" required>
+                    </div>
+                    <div class="col-lg-6">
                         <label for="email">E-mail</label>
                         <span class="mensagem" id="mensagem-email"></span>
                         <input type="email" class="form-control" id="email" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" maxlength="50" required>
