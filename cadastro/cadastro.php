@@ -31,12 +31,12 @@
                             <div class="col-lg-6">
                                 <label for="nomeEmpresa">Nome da Empresa</label>
                                 <span class="mensagem" id="mensagem-nomeEmpresa"></span>
-                                <input type="text" class="form-control" id="nomeEmpresa" name="nomeEmpresa" pattern="^.{4}$" required maxlength="50">
+                                <input type="text" class="form-control" id="nomeEmpresa" name="nomeEmpresa" pattern="^.{4}$" required maxlength="100">
                             </div>
                             <div class="col-lg-6">
                                 <label for="nomeFic">Nome Fictício (Opcional)</label>
                                 <span class="mensagem" id="mensagem-nomeFic"></span>
-                                <input type="text" class="form-control" id="nomeFic" name="nomeFic" pattern="(?:[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*[A-Za-zÀ-ÖØ-öø-ÿçÇ]){4}[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*" maxlength="50">
+                                <input type="text" class="form-control" id="nomeFic" name="nomeFic" pattern="(?:[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*[A-Za-zÀ-ÖØ-öø-ÿçÇ]){4}[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*" maxlength="100">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -48,7 +48,7 @@
                             <div class="col-lg-4">
                                 <label for="ramo">Ramo Empresarial</label>
                                 <span class="mensagem" id="mensagem-ramo"></span>
-                                <input type="text" class="form-control" id="ramo" name="ramo" pattern="(?:[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*[A-Za-zÀ-ÖØ-öø-ÿçÇ]){2}[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*" required maxlength="50">
+                                <input type="text" class="form-control" id="ramo" name="ramo" pattern="(?:[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*[A-Za-zÀ-ÖØ-öø-ÿçÇ]){2}[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*" required maxlength="100">
                             </div>
                             <div class="col-lg-4">
                                 <label for="tel">Telefone</label>

@@ -25,7 +25,7 @@
         <a href="../login/login.php" class="btn-voltar" ><i class="bi bi-arrow-left"></i><span id="btnBack">Voltar</span></a>
         <div class="caixa">
             <h1 class="titulo">Cadastro de Usuário</h1>
-            <form id="registrar">
+            <form id="registrar" action="cadastro-usuario-bd.php" method="post">
                 <div class="row mb-3">
                     <div class="col-lg-6">
                         <label for="nome">Nome</label>
@@ -58,7 +58,7 @@
                     <div class="col-lg-6">
                         <label for="senha">Senha</label>
                         <span class="mensagem" id="mensagem-senha"></span>
-                        <input type="password" class="form-control" id="senha" pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$" maxlength="50" required>
+                        <input type="password" class="form-control" id="senha" name="senha" pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$" maxlength="50" required>
                         <span id="descsenha">6 caracteres (uma letra maiúscula e um número)</span>
                     </div>
                     <div class="col-lg-6">
