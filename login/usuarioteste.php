@@ -2,5 +2,5 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-    <p>Página do usuário muito legal</p>
+    <p>Página do usuário muito legal!</p>
 </body>    
