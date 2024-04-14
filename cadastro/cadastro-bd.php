@@ -1,5 +1,5 @@
 <?php 
-session_start(); // informa ao PHP que iremos trabalhar com sessão
+session_start(); 
 require '../conexaobd/conexao.php';
 
 $cnpj = $conn->real_escape_string($_POST["cnpj"]);
@@ -20,7 +20,7 @@ function verificarDadoExistente($conn, $campo, $valor) {
 }
 
 if (verificarDadoExistente($conn, 'cnpj', $cnpj)) {
-    // Gera erro informando que os dados já estão no banco de dados
+    
     ?>
     <script>
     document.getElementById("mensagem-cnpj").textContent = "CNPJ já registrado anteriormente!";
@@ -40,10 +40,11 @@ if (verificarDadoExistente($conn, 'cnpj', $cnpj)) {
                             VALUES ('$cpf', '$nomeRepresentante', '$cargo', '$email', '$senha', $idEmpresa)";
         
         if ($conn->query($sqlFuncionario) === TRUE) {
-            echo "Cadastro realizado com sucesso.";
+            header("Location: ../login/login.php");
         } else {
             echo "Erro ao cadastrar funcionário: " . $conn->error;
         }
+        
     } else {
         echo "Erro ao cadastrar empresa: " . $conn->error;
     }

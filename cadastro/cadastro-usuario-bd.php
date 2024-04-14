@@ -17,7 +17,7 @@ function verificarDadoExistente($conn, $campo, $valor) {
 }
 
 if (verificarDadoExistente($conn, 'cpf', $cpf) || verificarDadoExistente($conn, 'email', $email) || verificarDadoExistente($conn, 'ra', $ra)) {
-    // Gera erro informando que os dados já estão no banco de dados
+    
     ?>
     <script>
     document.getElementById("mensagem-cpf").textContent = "Dados já registrados anteriormente!";
@@ -30,7 +30,7 @@ if (verificarDadoExistente($conn, 'cpf', $cpf) || verificarDadoExistente($conn, 
         $sql = "INSERT INTO colaborador_puc(cpf, nome, email, ra, telefone, senha) VALUES ('$cpf','$nome', '$email', '$ra', '$telefone','$senha')";
         
         if ($conn->query($sql) === TRUE) {
-            echo "FOI PRO BANCO";
+            header("Location: ../login/login.php");
         } else {
             echo "Erro ao cadastrar: " . $conn->error;
             ?>

@@ -119,4 +119,6 @@ input.form-control {
 #descsenha{
     font-size: 16px;
 }  
-
+.form-control.error {
+    box-shadow: 0 0 0 0.10rem rgba(255, 0, 0, 0.800);
+}

@@ -26,17 +26,17 @@
         <a href="../login/login.php" class="btn-voltar" ><i class="bi bi-arrow-left"></i><span id="btnBack">Voltar</span></a>
         <div class="caixa">
                     <h1 class="titulo">Cadastro para Empresas</h1>
-                    <form id="registrar">
+                    <form id="registrar" action="cadastro-bd.php" method="post">
                         <div class="row mb-3">
                             <div class="col-lg-6">
                                 <label for="nomeEmpresa">Nome da Empresa</label>
                                 <span class="mensagem" id="mensagem-nomeEmpresa"></span>
-                                <input type="text" class="form-control" id="nomeEmpresa" name="nomeEmpresa" pattern="^.{4}$" required maxlength="100">
+                                <input type="text" class="form-control" id="nomeEmpresa" name="nomeEmpresa" pattern="^.{4,}" required maxlength="100">
                             </div>
                             <div class="col-lg-6">
                                 <label for="nomeFic">Nome Fictício (Opcional)</label>
                                 <span class="mensagem" id="mensagem-nomeFic"></span>
-                                <input type="text" class="form-control" id="nomeFic" name="nomeFic" pattern="(?:[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*[A-Za-zÀ-ÖØ-öø-ÿçÇ]){4}[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*" maxlength="100">
+                                <input type="text" class="form-control" id="nomeFic" name="nomeFic" maxlength="100">
                             </div>
                         </div>
                         <div class="row mb-3">
