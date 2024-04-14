@@ -4,9 +4,11 @@ function validar(campoId) {
     let mensagem = document.getElementById("mensagem-"  + campoId);
     if (!campo.checkValidity()) {
         mensagem.textContent = "Dados inválidos!";
+        campo.classList.add("error")
         return false;
     } else {
         mensagem.textContent = "";
+        campo.classList.remove("error")
         return true;
     }
 }
@@ -23,7 +25,7 @@ function enviar() {
         MensagemConfirmarSenha.textContent = "Senhas não iguais!"
         camposValidos = false
     }
-    let campos = ["nome", "cpf", "tel", "email", "senha"];
+    let campos = ["nome", "cpf", "ra", "tel", "email", "senha"];
         
     campos.forEach(function(campo) {
         if (!validar(campo)) {
@@ -47,7 +49,7 @@ function enviar() {
 
 $(document).ready(function() {
     $('#nome').inputmask({
-        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*",
+        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
         greedy: false
     });
     $('#cpf').inputmask('999.999.999-99');

@@ -4,9 +4,11 @@ function validar(campoId) {
     let mensagem = document.getElementById("mensagem-"  + campoId);
     if (!campo.checkValidity()) {
         mensagem.textContent = "Dados inválidos!";
+        campo.classList.add("error")
         return false;
     } else {
         mensagem.textContent = "";
+        campo.classList.remove("error")
         return true;
     }
 }
@@ -52,21 +54,21 @@ function enviar() {
 $(document).ready(function() {
     $('#cnpj').inputmask('99.999.999/0009-99');
     $('#nomeRepresentante').inputmask({
-        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*",
+        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
         greedy: false
     });
     $('#nomeFic').inputmask({
-        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*",
+        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
         greedy: false
     });
     $('#ramo').inputmask({
-        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*",
+        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
         greedy: false
     });
     $('#cpf').inputmask('999.999.999-99');
         
     $('#cargo').inputmask({
-        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*",
+        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
         greedy: false
     });
     $('#tel').inputmask('(99) 99999-9999');   
