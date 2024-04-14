@@ -36,7 +36,7 @@
                         <label class="btn btn-primary btn-lg empresa-btn" for="empresa">Empresa</label>
                     </div>
                     
-                      <form action="#">
+                      <form action="login-bd.php" method="post">
                           <i class="bi person-icon bi-person"></i>
                           <div class="form-group">
                               <label class="mb-2" for="email">Email </label>
