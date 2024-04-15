@@ -5,7 +5,7 @@ CREATE TABLE Empresa (
     nome_empresa VARCHAR(100) NOT NULL,
     nome_fantasia VARCHAR(100) DEFAULT 'nome_empresa',
     ramo_empresarial VARCHAR(100),
-    telefone VARCHAR(20) NOT NULL,
+    telefone VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE Projeto (
