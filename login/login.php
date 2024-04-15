@@ -20,6 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="verificarlogin.js"></script>
     <script src="redirecionarcriarconta.js" defer></script>
+    <script src="redirecionarlogin.js" defer></script>
     <title>Login - PucDevAcademy</title>
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100">
@@ -36,7 +37,7 @@
                         <label class="btn btn-primary btn-lg empresa-btn" for="empresa">Empresa</label>
                     </div>
                     
-                      <form action="login-bd.php" method="post">
+                      <form id="loginform" action="login-colaborador-bd.php" method="post">
                           <i class="bi person-icon bi-person"></i>
                           <div class="form-group">
                               <label class="mb-2" for="email">Email </label>
