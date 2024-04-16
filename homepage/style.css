@@ -103,8 +103,6 @@ body {
     color: #7742E8;
 }
 
-/* Estilo para a seção "Sobre Nós" */
-
 .about-us {
     color: #fff; 
     padding: 10px 20px; 
@@ -136,7 +134,6 @@ body {
     float: right; 
     border-radius: 7px;
 }    
-
 
 /* FOOTER */
 footer {

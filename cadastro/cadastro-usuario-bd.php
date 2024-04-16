@@ -1,5 +1,5 @@
 <?php 
-session_start(); // informa ao PHP que iremos trabalhar com sessão
+session_start();
 require '../conexaobd/conexao.php';
 
 $cpf = $conn->real_escape_string($_POST["cpf"]);
@@ -35,7 +35,6 @@ if (verificarDadoExistente($conn, 'cpf', $cpf) || verificarDadoExistente($conn, 
             echo "Erro ao cadastrar: " . $conn->error;
             ?>
             <script>
-            alert("Tente novamente.");
             history.go(-1);        
             </script>
             <?php

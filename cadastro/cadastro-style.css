@@ -4,7 +4,7 @@ body{
 }
 
 .caixa {
-    background-color: #333333; /* Cor escura para o fundo da caixa */
+    background-color: #333333; 
     padding: 20px;
     border-radius: 10px;
     margin-top: 50px;

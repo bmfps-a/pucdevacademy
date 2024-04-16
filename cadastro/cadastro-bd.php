@@ -26,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             VALUES ('$cnpj', '$nomeEmpresa', '$nomeFic', '$ramo', '$tel')";
 
             if ($conn->query($sqlEmpresa) === TRUE) {
-                // Cadastro do funcionário
                 $sqlFuncionario = "INSERT INTO funcionario (cpf, nome, cargo, email, senha, fk_Empresa_cnpj) 
                                     VALUES ('$cpf', '$nomeRepresentante', '$cargo', '$email', '$senha', '$cnpj')";
 

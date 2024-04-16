@@ -33,7 +33,6 @@ function enviar() {
         }
     });
     if (camposValidos === true) {
-        alert("Formulário enviado com sucesso!");
         console.log("Valores: ")
         console.log(document.getElementById("nome").value)
         console.log(document.getElementById("cpf").value)

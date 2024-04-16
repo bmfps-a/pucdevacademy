@@ -33,7 +33,6 @@ function enviar() {
         }
     });
     if (camposValidos === true) {
-        alert("Formulário enviado com sucesso!");
         console.log("Valores: ")
         console.log(document.getElementById("nomeEmpresa").value)
         console.log(document.getElementById("cnpj").value)
