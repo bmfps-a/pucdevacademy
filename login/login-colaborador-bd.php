@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // Usuário autenticado com sucesso, iniciar a sessão e redirecionar para a página adequada
         session_start();
-        $_SESSION["email"] = $email;
+        $_SESSION["emailusuario"] = $email;
         header("Location: usuarioteste.php"); // Redirecionar para a página do usuário
         exit();
     } else {

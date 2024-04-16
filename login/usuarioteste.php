@@ -1,5 +1,18 @@
 <?php
+session_start();
 include("../conexaobd/conexao.php");
+
+// Verifica se o usuário está logado, se não estiver, redireciona para a página de login
+if(!isset($_SESSION['emailusuario'])) {
+    if(isset($_SESSION['emailempresa'])) {
+        header("Location: ../homepage/index.php");
+        exit();
+    }
+    else{
+        header("Location: ../login/login.php");
+        exit();
+    }
+}    
 ?>
 
 <!DOCTYPE html>
