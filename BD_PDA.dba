@@ -41,7 +41,7 @@ CREATE TABLE faz (
 ALTER TABLE Projeto ADD CONSTRAINT FK_Projeto_2
     FOREIGN KEY (fk_Empresa_cnpj)
     REFERENCES Empresa (cnpj)
-    ON DELETE RESTRICT;
+    ON DELETE CASCADE;
  
 ALTER TABLE Funcionario ADD CONSTRAINT FK_Funcionario_2
     FOREIGN KEY (fk_Empresa_cnpj)
