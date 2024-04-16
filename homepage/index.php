@@ -2,25 +2,29 @@
 session_start();
 include("../conexaobd/conexao.php");
 
-// Verifica se a sessão está ativa
-if (isset($_SESSION['email'])) {
-    $loggedInEmail = $_SESSION['email'];
+// Inicializa as variáveis do botão com valores padrão
+$buttonText = "Login/Cadastro";
+$buttonLink = "../login/login.php";
+
+// Verifica se um usuário está logado e ajusta o texto e link do botão conforme necessário
+if (isset($_SESSION['emailusuario'])) {
+    $loggedInEmail = $_SESSION['emailusuario'];
     $buttonText = "Dashboard";
     $buttonLink = "../login/usuarioteste.php";
-} else {
-    $buttonText = "Login/Cadastro";
-    $buttonLink = "../login/login.php";
+} elseif (isset($_SESSION['emailempresa'])) {
+    $loggedInEmail = $_SESSION['emailempresa'];
+    $buttonText = "Placeholder"; // Altere para o texto desejado
+    $buttonLink = "../homepage/index.php";
 }
-
-// Verifica se o botão de logoff foi clicado
 if (isset($_POST['logout'])) {
     // Encerra a sessão
     session_unset();
     session_destroy();
-    // Atualiza a página
-    header("Location: index.php");
+    // Redireciona para a página de login
+    header("Location: ../homepage/index.php");
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +58,7 @@ if (isset($_POST['logout'])) {
             <span class="navbar-text me-3" style="color:white"><?php echo "Logado como: " . $loggedInEmail; ?></span>
             <?php endif; ?>
             <!-- Botão de logoff -->
-            <?php if (isset($_SESSION['email'])) : ?>
+            <?php if (isset($_SESSION['emailusuario']) || isset($_SESSION['emailempresa'])) : ?>
             <form method="POST">
                 <button class="btn btn-danger me-auto" type="submit" name="logout">Logout</button>
             </form>
