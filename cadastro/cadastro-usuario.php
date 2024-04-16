@@ -1,4 +1,15 @@
-<?php?> 
+<?php
+session_start();
+include("../conexaobd/conexao.php");
+
+// Verifica se um usuário está logado e ajusta o texto e link do botão conforme necessário
+if (isset($_SESSION['emailusuario']) || isset($_SESSION['emailempresa'])) {
+    header("Location: ../homepage/index.php");
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
