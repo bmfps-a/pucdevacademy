@@ -2,8 +2,7 @@
 session_start();
 include("../conexaobd/conexao.php");
 
-// Verifica se o usuário está logado, se não estiver, redireciona para a página de login
-if(!isset($_SESSION['emailusuario'])) {
+if(!isset($_SESSION['emailcolaborador'])) {
     if(isset($_SESSION['emailempresa'])) {
         header("Location: ../homepage/index.php");
         exit();
@@ -23,24 +22,42 @@ if(!isset($_SESSION['emailusuario'])) {
     <title>Listagem de Empresas</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        .btn-primary{
+            background-color: #7742E8;
+            border-color: #7742E8;
+        }
+
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: #7742E8 !important;
+            border-color: #7742E8 !important;
+            color: black;
+        }
+
         .edit-btn {
-            background-color: #ffc107; 
-            border-color: #ffc107;
+            background-color: #25DF7C; 
+            border-color: #25DF7C;
+            color: white;
         }
         
         .delete-btn {
             background-color: #dc3545; 
             border-color: #dc3545;
+            color: white;
         }
         
         .edit-btn:hover, .edit-btn:focus, .delete-btn:hover, .delete-btn:focus {
-            background-color: #ffc107 !important;
-            border-color: #ffc107 !important;
+            background-color: #25DF7C !important;
+            border-color: #25DF7C !important;
         }
         
         .delete-btn:hover, .delete-btn:focus {
             background-color: #dc3545 !important;
             border-color: #dc3545 !important;
+        }
+
+        .mb-4 {
+            font-weight: bold;
+            color: white
         }
 
         .custom-table {
@@ -56,9 +73,14 @@ if(!isset($_SESSION['emailusuario'])) {
         .custom-table td, .custom-table th {
             vertical-align: middle !important; 
         }
+        tbody{
+            background-color: #181818;
+            color: white
+            
+        }
     </style>
 </head>
-<body>
+<body style="background-color:  #222222;">
      <div class="container mt-4">
         <a href="../homepage/index.php" class="btn btn-primary">Voltar à Homepage</a>
     </div>

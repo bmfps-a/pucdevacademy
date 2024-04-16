@@ -3,21 +3,18 @@ include("../conexaobd/conexao.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
-    $senha = md5($_POST["password"]); // Convertendo a senha inserida para MD5
-
-    // Consulta para verificar se o usuário e senha correspondem a um registro na tabela Colaborador_puc
+    $senha = md5($_POST["password"]); 
     $sql = "SELECT * FROM Funcionario WHERE email = '$email' AND senha = '$senha'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        // Usuário autenticado com sucesso, iniciar a sessão e redirecionar para a página adequada
         session_start();
         $_SESSION["emailempresa"] = $email;
-        header("Location: ../homepage/index.php"); // Redirecionar para a página do usuário
+        header("Location: ../homepage/index.php");
         exit();
     } else {
-        // Usuário ou senha incorretos, exibir mensagem de erro
         echo "Usuário ou senha incorretos!";
+        header("refresh:2; url=login.php");
     }
 }
 

@@ -10,11 +10,23 @@ include("../conexaobd/conexao.php");
     <title>Editar Empresa</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        
+        .btn-primary{
+            background-color: #7742E8;
+            border-color: #7742E8;
+        }
+        
+        .mb-4{
+            color: white;
+            text-align: center;
+        }
+        
         .edit-form {
-            background-color: #f8f9fa;
-            border: 1px solid #ced4da;
+            background-color: #333333;
+            border: 1px solid #333333;
             border-radius: 5px;
             padding: 20px;
+            color: white;
         }
 
         .edit-form input[type="text"] {
@@ -23,18 +35,18 @@ include("../conexaobd/conexao.php");
         }
 
         .edit-form input[type="submit"] {
-            background-color: #007bff;
-            border-color: #007bff;
+            background-color: #7742E8;
+            border-color: #7742E8;
             color: #ffffff;
         }
 
         .edit-form input[type="submit"]:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
+            background-color: #7742E8;
+            border-color: #7742E8;
         }
     </style>
 </head>
-<body>
+<body style="background-color:  #222222;">
     <div class="container mt-4">
         <h3 class="mb-4">Editar Empresa</h3>
         <div class="edit-form">

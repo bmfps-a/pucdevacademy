@@ -17,7 +17,6 @@ let camposvalidos = false;
             }
         });
         if (camposvalidos === true) {
-            alert("Login efetuado com sucesso!")
             console.log(document.getElementById("email").value)
             console.log(document.getElementById("password").value)
         }
