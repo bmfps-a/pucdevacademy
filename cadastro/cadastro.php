@@ -87,7 +87,7 @@
                             <div class="col-lg-6">
                                 <label for="senha">Senha</label>
                                 <span class="mensagem" id="mensagem-senha"></span>
-                                <input type="password" class="form-control" id="senha" pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$" required maxlength="50">
+                                <input type="password" class="form-control" id="senha" name="senha" pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$" required maxlength="50">
                                 <span id="descsenha">6 caracteres (uma letra maiúscula e um número)</span>
                             </div>
                             <div class="col-lg-6">
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                         <div class="btn-criar">
-                            <button class="criarConta" type="button" onclick="enviar()">Criar Conta <i class="fas fa-arrow-right"></i></button>
+                            <button class="criarConta" type="submit" onclick="enviar()">Cadastrar <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </form>
         </div>
