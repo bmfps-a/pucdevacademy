@@ -1,5 +1,27 @@
-<?php?>
+<?php
+session_start();
+include("../conexaobd/conexao.php");
 
+// Verifica se a sessão está ativa
+if (isset($_SESSION['email'])) {
+    $loggedInEmail = $_SESSION['email'];
+    $buttonText = "Dashboard";
+    $buttonLink = "../login/usuarioteste.php";
+} else {
+    $buttonText = "Login/Cadastro";
+    $buttonLink = "../login/login.php";
+}
+
+// Verifica se o botão de logoff foi clicado
+if (isset($_POST['logout'])) {
+    // Encerra a sessão
+    session_unset();
+    session_destroy();
+    // Atualiza a página
+    header("Location: index.php");
+    exit();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +49,16 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
         <div class="container py-3">
+            <!-- Exibe o email da pessoa logada -->
+            <?php if (isset($loggedInEmail)) : ?>
+            <span class="navbar-text me-3" style="color:white"><?php echo "Logado como: " . $loggedInEmail; ?></span>
+            <?php endif; ?>
+            <!-- Botão de logoff -->
+            <?php if (isset($_SESSION['email'])) : ?>
+            <form method="POST">
+                <button class="btn btn-danger me-auto" type="submit" name="logout">Logout</button>
+            </form>
+            <?php endif; ?>
             <button
                 class="navbar-toggler ms-auto"
                 type="button"
@@ -48,7 +80,7 @@
                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="#contact"><i class="bi bi-telephone"></i> Contato</a>
                     </li>
-                    <a class="btn-login" href="../login/login.php" role="button">login/cadastro</a>
+                    <a class="btn-login" href="<?php echo $buttonLink; ?>" role="button"><?php echo $buttonText; ?></a>
                 </ul>
             </div>
         </div>
@@ -106,73 +138,60 @@
         </div>
     </footer>
     <script>
-            function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
         }
-    }
 
-document.addEventListener('DOMContentLoaded', function() {
-        const aboutLink = document.querySelector('a[href="#about"]');
-        const contactLink = document.querySelector('a[href="#contact"]');
-        const homeLink = document.querySelector('a[href="#home"]');
-        const navLinks = document.querySelectorAll('.nav-link-scroll');
+        document.addEventListener('DOMContentLoaded', function() {
+            const aboutLink = document.querySelector('a[href="#about"]');
+            const contactLink = document.querySelector('a[href="#contact"]');
+            const homeLink = document.querySelector('a[href="#home"]');
+            const navLinks = document.querySelectorAll('.nav-link-scroll');
 
-    
-        if (aboutLink) {
-            aboutLink.addEventListener('click', function(e) {
-                e.preventDefault(); 
-                scrollToSection('about');
-
-                
-                navLinks.forEach(function(navLink) {
-                    navLink.classList.remove('active');
+            if (aboutLink) {
+                aboutLink.addEventListener('click', function(e) {
+                    e.preventDefault(); 
+                    scrollToSection('about');
+                    navLinks.forEach(function(navLink) {
+                        navLink.classList.remove('active');
+                    });
+                    this.classList.add('active');
                 });
-                this.classList.add('active');
-            });
-        }
+            }
 
-        if (contactLink) {
-            contactLink.addEventListener('click', function(e) {
-                e.preventDefault(); 
-                scrollToSection('contact');
-
-                
-                navLinks.forEach(function(navLink) {
-                    navLink.classList.remove('active');
+            if (contactLink) {
+                contactLink.addEventListener('click', function(e) {
+                    e.preventDefault(); 
+                    scrollToSection('contact');
+                    navLinks.forEach(function(navLink) {
+                        navLink.classList.remove('active');
+                    });
+                    this.classList.add('active');
                 });
-                this.classList.add('active');
-            });
-        }
+            }
 
-    
-        if (homeLink) {
-            homeLink.addEventListener('click', function(e) {
-                e.preventDefault(); 
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-
-                
-                navLinks.forEach(function(navLink) {
-                    navLink.classList.remove('active');
+            if (homeLink) {
+                homeLink.addEventListener('click', function(e) {
+                    e.preventDefault(); 
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    navLinks.forEach(function(navLink) {
+                        navLink.classList.remove('active');
+                    });
+                    this.classList.add('active');
                 });
-                this.classList.add('active');
-            });
-        }
+            }
 
-    
             navLinks.forEach(function(link) {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const sectionId = this.getAttribute('href').slice(1);
                     scrollToSection(sectionId);
-
-                    
                     navLinks.forEach(function(navLink) {
                         navLink.classList.remove('active');
                     });
-
-                    
                     this.classList.add('active');
                 });
             });
