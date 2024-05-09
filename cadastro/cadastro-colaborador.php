@@ -87,6 +87,6 @@ if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/validacaouser.js"></script>
+    <script src="../cadastro/validacaouser.js"></script>
 </body>
 </html>
