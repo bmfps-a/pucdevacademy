@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// // Verifica se o usuário está logado
+// if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+//     header("Location: ../login/login.php");
+//     exit;
+// }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,43 +74,45 @@
                         <input type="tel" class="form-control" id="tel" name="telefone"
                             pattern="(\(\d{2}\) \d{5}-\d{4}|(\d{2} [89]\d{4}-\d{4}))" required>
                     </div>
-                <hr>
-                <div class="row mb-3">
-                    <div class="col-lg-6">
-                        <label for="senha">Senha antiga</label>
-                        <span class="mensagem" id="mensagem-senha"></span>
-                        <input type="password" class="form-control" id="senha" name="senha" required>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="senha">Nova Senha</label>
-                        <span class="mensagem" id="mensagem-senha"></span>
-                        <input type="password" class="form-control" id="senha" name="senha"
-                            pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$" maxlength="50" required>
-                        <span id="descsenha">6 caracteres (uma letra maiúscula e um número)</span>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="confirmarSenha">Confirmar Senha</label>
-                        <span class="mensagem" id="mensagem-confirmarSenha"></span>
-                        <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha"
-                            pattern=".+" required>
+                    <hr class="mt-4">
+                    <div class="row mb-3">
+                        <div class="col-lg-6">
+                            <label for="senha">Senha antiga</label>
+                            <span class="mensagem" id="mensagem-senha"></span>
+                            <input type="password" class="form-control" id="senha" name="senha" required>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="senha">Nova Senha</label>
+                            <span class="mensagem" id="mensagem-senha"></span>
+                            <input type="password" class="form-control" id="senha" name="senha"
+                                pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$" maxlength="50" required>
+                            <span id="descsenha">6 caracteres (uma letra maiúscula e um número)</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="confirmarSenha">Confirmar Senha</label>
+                            <span class="mensagem" id="mensagem-confirmarSenha"></span>
+                            <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha"
+                                pattern=".+" required>
 
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-lg-6">
-                        <label for="imagem">Imagem de perfil</label>
-                        <div class="profile-image">
-                            <img id="preview" src="#" alt="Imagem de perfil">
-                            <input type="file" id="imagem" name="update_image" accept="image/jpg, image/jpeg, image/png"
-                                class="box" onchange="previewImage(event)">
                         </div>
                     </div>
-                </div>
-                <div class="btn-editar">
-                    <button class="editarConta" type="submit" onclick="enviar()">Editar <i
-                            class="fas fa-arrow-right"></i></button>
-                </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-6">
+                            <label for="profilePicture">Imagem de Perfil</label>
+                            <div>
+                                <img id="profilePreview" class="profile-pic" src=""
+                                    alt="Profile Picture Preview">
+                            </div>
+                            <input type="file" class="form-control" id="profilePicture" name="profilePicture"
+                                accept="image/*" onchange="previewImage(event)">
+                        </div>
+                    </div>
+                    <div class="btn-editar">
+                        <button class="editarConta" type="submit" onclick="enviar()">Salvar <i
+                                class="fas fa-arrow-right"></i></button>
+                    </div>
             </form>
         </div>
     </div>
+    <script src="../editar_perfil/editar_perfil.js"></script>
 </html>

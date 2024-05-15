@@ -28,7 +28,7 @@ form {
   margin-top: 20px;
 }
 #linhaCentral {
-  margin-top: 7%;
+  margin-top: 700%;
   width: 100%;
   color: white;
 }
@@ -116,4 +116,12 @@ input.form-control {
 }
 .form-control.error {
   box-shadow: 0 0 0 0.1rem rgba(255, 0, 0, 0.8);
+}
+
+.profile-pic {
+  max-width: 150px; /* Define a largura máxima da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #ccc; /* Opcional: adiciona uma borda */
 }
