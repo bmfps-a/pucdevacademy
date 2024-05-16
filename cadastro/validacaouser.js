@@ -43,8 +43,15 @@ function enviar() {
         console.log(document.getElementById("confirmarSenha").value)
         return true
     }
+    window.location.href = '../editar_perfil/editar_perfil.php';
     return false
 }
+
+// function redirecionar() {
+//     window.location.href = '../editar_perfil/editar_perfil.php';
+// }
+
+document.getElementById('criarConta').addEventListener('click', redirecionar);
 
 $(document).ready(function() {
     $('#nome').inputmask({

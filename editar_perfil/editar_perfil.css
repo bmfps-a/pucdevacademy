@@ -121,7 +121,8 @@ input.form-control {
 .profile-pic {
   max-width: 150px; /* Define a largura máxima da imagem */
   height: auto; /* Mantém a proporção da imagem */
-  border-radius: 50%;
+  border-radius: 100%;
   margin-bottom: 10px;
   border: 2px solid #ccc; /* Opcional: adiciona uma borda */
+  
 }

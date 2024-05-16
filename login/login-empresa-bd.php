@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         session_start();
         $_SESSION["emailempresa"] = $email;
-        header("Location: ../homepage/index.php");
+        header("Location: ../editar_perfil/editar_perfil.php");
         exit();
     } else {
         echo "Usuário ou senha incorretos!";
