@@ -71,3 +71,4 @@ if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
   </div>
 </body>
 </html>
+
