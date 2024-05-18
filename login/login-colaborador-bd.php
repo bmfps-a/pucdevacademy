@@ -3,7 +3,7 @@ include("../conexaobd/conexao.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
-    $senha = $_POST["password"];
+    $senha = md5($_POST["password"]);
     $sql = "SELECT * FROM Colaborador_puc WHERE email = '$email' AND senha = '$senha'";
     $result = $conn->query($sql);
 
