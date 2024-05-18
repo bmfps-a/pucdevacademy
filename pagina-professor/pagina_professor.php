@@ -4,13 +4,8 @@ include("../conexaobd/conexao.php");
 
 // Verifique se o usuário está logado
 if (!isset($_SESSION['emailcolaborador'])) {
-    if (isset($_SESSION['emailempresa'])) {
-        header("Location: ../homepage/index.php");
-        exit();
-    } else {
-        header("Location: ../login/login.php");
-        exit();
-    }
+    header("Location: ../login/login.php");
+    exit();
 }
 
 // Consulta SQL para selecionar todas as empresas
@@ -29,10 +24,9 @@ if (!$result) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina da Empresa</title>
+    <title>Página do Professor</title>
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="./pagina_professor.css">
 </head>
 <body>
@@ -70,7 +64,7 @@ if (!$result) {
             </li>
         </ul>
         <div class="sidebar-footer">
-            <a href="#" class="sidebar-link">
+            <a href="../login/logout.php" class="sidebar-link">
                 <i class="lni lni-exit"></i>
                 <span>Sair</span>
             </a>
@@ -97,6 +91,9 @@ if (!$result) {
                         </div>
                     </li>
                 </ul>
+                <span class="navbar-text">
+                    <?php echo $_SESSION['emailcolaborador']; ?>
+                </span>
             </div>
         </nav>
         <main class="content px-3 py-4">
@@ -106,15 +103,13 @@ if (!$result) {
                         <h3 class="fw-bold fs-4 mb-3">Projetos em andamento</h3>
                         <div class="row">
                             <div class="col-12 col-md-4 ">
-                                <div class="col-12 col-md-4 ">
-                                    <div class="card border-0">
-                                        <div class="card-body py-4">
-                                            <h5 class="mb-2 fw-bold">Projeto X</h5>
-                                            <p class="mb-2 fw-bold">Realizar sistema MVC</p>
-                                            <div class="mb-0">
-                                                <span class="badge text-success me-2">90.0% para concluir</span>
-                                                <span class="fw-bold">atualizado: 30 min</span>
-                                            </div>
+                                <div class="card border-0">
+                                    <div class="card-body py-4">
+                                        <h5 class="mb-2 fw-bold">Projeto X</h5>
+                                        <p class="mb-2 fw-bold">Realizar sistema MVC</p>
+                                        <div class="mb-0">
+                                            <span class="badge text-success me-2">90.0% para concluir</span>
+                                            <span class="fw-bold">atualizado: 30 min</span>
                                         </div>
                                     </div>
                                 </div>
@@ -187,16 +182,8 @@ if (!$result) {
         </footer>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 <script src="./pagina_professor.js"></script>
 </body>
 </html>
-
-<?php
-// Feche a conexão com o banco de dados
-mysqli_close($conn);
-?>
-
-
