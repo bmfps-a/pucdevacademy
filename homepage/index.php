@@ -4,6 +4,16 @@ include ("../conexaobd/conexao.php");
 $buttonText = "Login/Cadastro";
 $buttonLink = "../login/login.php";
 
+if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) {
+        session_unset();
+        session_destroy();
+        header("Location: ../homepage/index.php");
+        exit();
+    }
+
+    $_SESSION['LAST_ACTIVITY'] = time();
+}
 
 if (isset($_SESSION['emailcolaborador'])) {
     $loggedInEmail = $_SESSION['emailcolaborador'];
@@ -13,6 +23,8 @@ if (isset($_SESSION['emailcolaborador'])) {
     $loggedInEmail = $_SESSION['emailempresa'];
     $buttonText = "Placeholder";
     $buttonLink = "../homepage/index.php";
+} else {
+    $loggedInEmail = "";
 }
 if (isset($_POST['logout'])) {
     session_unset();
@@ -56,11 +68,11 @@ if (isset($_POST['logout'])) {
     <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
         <div class="container py-3">
             <!-- Exibe o email da pessoa logada -->
-            <?php if (isset($loggedInEmail)): ?>
-                <span class="navbar-text me-3" style="color:white"><?php echo "Logado como: " . $loggedInEmail; ?></span>
+            <?php if (!empty($loggedInEmail)) : ?>
+            <span class="navbar-text me-3" style="color:white"><?php echo "Logado como: " . $loggedInEmail; ?></span>
             <?php endif; ?>
             <!-- Botão de logoff -->
-            <?php if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])): ?>
+            <?php if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) : ?>
                 <form method="POST">
                     <button class="btn btn-danger me-auto" type="submit" name="logout">Logout</button>
                 </form>
