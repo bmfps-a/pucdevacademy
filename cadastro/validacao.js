@@ -17,6 +17,13 @@ function enviar() {
     let senha = document.getElementById("senha").value
     let confirmarSenha = document.getElementById("confirmarSenha").value
     let MensagemConfirmarSenha = document.getElementById("mensagem-confirmarSenha")
+    let campos = ["nomeEmpresa", "cnpj", "nomeRepresentante", "nomeFic", "ramo", "cpf", "cargo", "tel", "email", "senha",];
+        
+    campos.forEach(function(campo) {
+        if (!validar(campo)) {
+            camposValidos = false;
+        }
+    });
     if (confirmarSenha=== senha){
         MensagemConfirmarSenha.textContent = ""
         camposValidos = true;
@@ -25,13 +32,6 @@ function enviar() {
         MensagemConfirmarSenha.textContent = "Senhas não iguais!"
         camposValidos = false
     }
-    let campos = ["nomeEmpresa", "cnpj", "nomeRepresentante", "nomeFic", "ramo", "cpf", "cargo", "tel", "email", "senha",];
-        
-    campos.forEach(function(campo) {
-        if (!validar(campo)) {
-            camposValidos = false;
-        }
-    });
     if (camposValidos === true) {
         console.log("Valores: ")
         console.log(document.getElementById("nomeEmpresa").value)
