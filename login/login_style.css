@@ -1,0 +1,129 @@
+body{
+    background-color: rgb(90, 86, 86);
+    font-family: 'Saira Condensed';
+}
+
+.row{
+    background-color:#272721;
+    color: #fff;
+    width: 300px;
+    height: 424px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.col-sm-6{
+    width: 100%;
+}
+
+.btn-group {
+    margin-left: -12px;
+}
+
+
+.btn-group label.btn {
+    cursor: pointer; /* Altera o cursor do mouse */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave */
+    width: 150px; 
+    text-align: center; 
+    border-bottom: 2px solid #fff; 
+}
+
+/* Adiciona borda entre os botões */
+.colaborador-btn {
+    border-right: 2px solid #ffffff; 
+    border-left: none;
+    border-top: none;
+    background-color: #272721; /* Cor de fundo padrão para o botão "Colaborador" */
+    color: #fff; /* Cor do texto para o botão "Colaborador" */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input[type="radio"].btn-check:checked + .colaborador-btn {
+    background-color: #0b0b0b; /* Altera a cor de fundo do botão "Colaborador" selecionado */
+    border-color: #ffffff; /* Mantém a borda branca quando selecionado */
+}
+
+.empresa-btn {
+    background-color: #272721; 
+    color: #fff; 
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input[type="radio"].btn-check:checked + .empresa-btn {
+    background-color: #000000; /* Altera a cor de fundo do botão "Empresa" selecionado */
+    border-color: #ffffff; 
+}
+
+.btn-group label.btn:hover,
+.btn-group label.btn:focus {
+    background-color: #272721; /* Mantém a cor de fundo padrão */
+    border-bottom: 2px solid #fff; /* Adiciona borda branca abaixo dos botões */
+}
+
+.empresa-btn label.btn:hover{
+    border-left-color: #fff;
+}
+
+.colaborador-btn label.btn:hover{
+    border-right-color: #fff;
+}
+
+.person-icon{
+    font-size: 50px;
+    position: relative;
+    left: 113px;
+    padding: 0;
+    margin: 0;
+    color: white;
+
+}
+
+.btn-login{
+    background-color: #7742E8;
+    border-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.btn-login:hover{
+    background-color: #4f26a7;
+    border-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.btn-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #7742E8;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid #7742E8;
+    border-radius: 10px;
+    font-family: "Saira Condensed", sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+/* RESPONSIVIDADE */
+@media (min-width: 576px) {
+    .formContainer {
+        max-width: 400px;
+    }
+}
+#criarConta{
+    margin-left: 7px;
+    color: #7742E8; 
+    font-size: 14px;
+}
+#criarConta:hover {
+    text-decoration: underline;
+  }
+#descsenha{
+    font-size: 10px;
+}  
