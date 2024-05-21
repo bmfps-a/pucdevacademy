@@ -21,7 +21,7 @@
     <title>PucDevAcademy</title>
 </head>
 
-<body>
+<body id="home">
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
         <div class="container py-3">
