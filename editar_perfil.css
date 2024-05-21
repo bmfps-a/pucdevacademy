@@ -1,0 +1,128 @@
+body {
+  background-color: #171810;
+}
+
+.caixa {
+  background-color: #333333;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+.titulo {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  padding-top: 5%;
+}
+form {
+  background-color: #333333;
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: white;
+  margin-top: 20px;
+}
+#linhaCentral {
+  margin-top: 700%;
+  width: 100%;
+  color: white;
+}
+#flecha {
+  margin-left: 10px;
+}
+.mensagem {
+  margin-left: 7px;
+  color: red;
+  font-size: 14px;
+}
+.caixa {
+  width: 70%;
+  margin: auto;
+}
+.criarConta {
+  width: 50%;
+  border-radius: 10px;
+  font-size: 30px;
+  margin: auto;
+  display: block;
+  background-color: #7742e8;
+  border: 2px solid #7742e8;
+  color: white;
+  padding: 10px 20px;
+}
+
+.btn-criar {
+  padding-top: 7%;
+  padding-bottom: 10%;
+  width: 100%;
+}
+
+.btn-voltar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #7742e8;
+  color: white;
+  padding: 10px 20px;
+  border: 2px solid #7742e8;
+  border-radius: 10px;
+  font-family: "Saira Condensed", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .btn-voltar {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .caixa {
+    margin-top: 20px;
+  }
+
+  form {
+    margin-top: 20px;
+  }
+
+  input.form-control {
+    margin-bottom: 10px;
+  }
+}
+.col {
+  width: 50%;
+}
+#confirmarsenha {
+  width: 50%;
+}
+.titulo {
+  padding-bottom: 4%;
+}
+input.form-control {
+  font-size: 20px;
+}
+#descsenha {
+  font-size: 16px;
+}
+.form-control.error {
+  box-shadow: 0 0 0 0.1rem rgba(255, 0, 0, 0.8);
+}
+
+.profile-pic {
+  max-width: 150px; /* Define a largura máxima da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 100%;
+  margin-bottom: 10px;
+  border: 2px solid #ccc; /* Opcional: adiciona uma borda */
+  
+}

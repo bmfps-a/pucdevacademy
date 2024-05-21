@@ -1,0 +1,83 @@
+CREATE DATABASE pucdevacademy;
+USE pucdevacademy;
+
+CREATE TABLE Funcionario (
+    Nome VARCHAR(50),
+    Cpf VARCHAR(20) PRIMARY KEY,
+    Cargo VARCHAR(50),
+    Email VARCHAR(50) UNIQUE,
+    Senha VARCHAR(50),
+    Foto_usuario MEDIUMBLOB,
+    fk_Empresa_CNPJ VARCHAR(20)
+);
+
+CREATE TABLE Empresa (
+    Nome_empresa VARCHAR(100),
+    Nome_fantasia VARCHAR(100),
+    CNPJ VARCHAR(20) PRIMARY KEY,
+    Ramo_empresarial VARCHAR(100),
+    Telefone VARCHAR(20)
+);
+
+CREATE TABLE Projeto (
+    ID_Projeto INT PRIMARY KEY,
+    Descricao VARCHAR(1000),
+    Nome_projeto VARCHAR(50),
+    Data_Inicio DATE,
+    Data_Fim DATE,
+    Status VARCHAR(20),
+    fk_Empresa_CNPJ VARCHAR(20)
+);
+
+CREATE TABLE Colaborador_Puc (
+    CPF VARCHAR(20) PRIMARY KEY,
+    Nome VARCHAR(50),
+    Email VARCHAR(50),
+    RA VARCHAR(20),
+    Foto_colaborador MEDIUMBLOB,
+    Senha VARCHAR(50),
+    Telefone VARCHAR(20),
+    fk_Projeto_ID_Projeto INT NULL,
+    UNIQUE (Email, RA)
+);
+
+CREATE TABLE Aluno_puc (
+    CPF VARCHAR(20) PRIMARY KEY,
+    Nome VARCHAR(50),
+    Email VARCHAR(50),
+    Ra VARCHAR(20),
+    Foto_aluno MEDIUMBLOB,
+    Senha VARCHAR(50),
+    Telefone VARCHAR(20),
+    fk_Colaborador_Puc_CPF VARCHAR(20) NULL,
+    UNIQUE (Email, Ra)
+);
+
+ALTER TABLE Aluno_puc MODIFY COLUMN fk_Colaborador_Puc_CPF VARCHAR(20) NULL;
+ 
+ALTER TABLE Funcionario ADD CONSTRAINT FK_Funcionario_2
+    FOREIGN KEY (fk_Empresa_CNPJ)
+    REFERENCES Empresa (CNPJ)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Projeto ADD CONSTRAINT FK_Projeto_2
+    FOREIGN KEY (fk_Empresa_CNPJ)
+    REFERENCES Empresa (CNPJ)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Colaborador_Puc ADD CONSTRAINT FK_Colaborador_Puc_2
+    FOREIGN KEY (fk_Projeto_ID_Projeto)
+    REFERENCES Projeto (ID_Projeto)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Aluno_puc ADD CONSTRAINT FK_Aluno_puc_2
+    FOREIGN KEY (fk_Colaborador_Puc_CPF)
+    REFERENCES Colaborador_Puc (CPF)
+    ON DELETE RESTRICT;
+    
+    
+
+
+
+
+
