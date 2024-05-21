@@ -1,11 +1,36 @@
 <?php
-// session_start();
-// if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-//     header("Location: ../login/login.php");
-//     exit;
-// }
-include 'back_editar_perfil.php';
+session_start();
+require '../conexaobd/conexao.php';
+
+// Verifica se o usuário está logado
+if (isset($_SESSION['emailcolaborador'])) {
+    $email_login = $_SESSION['emailcolaborador'];
+
+    // Consulta para obter os dados do usuário com base no email
+    $sql = "SELECT cpf, nome, ra, email, telefone FROM colaborador_puc WHERE email=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('s', $email_login);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Existe pelo menos uma linha de resultado, então podemos exibir os dados
+        $row = $result->fetch_assoc();
+        $nome = $row["nome"];
+        $cpf = $row["cpf"];
+        $ra = $row["ra"];
+        $email = $row["email"];
+        $telefone = $row["telefone"];
+    } else {
+        echo "Usuário não encontrado.";
+        exit();
+    }
+} else {
+    header("Location: ../login/login.php");
+    exit();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,7 +61,7 @@ include 'back_editar_perfil.php';
         <a href="../homepage/index.php" class="btn-voltar"><i class="bi bi-arrow-left"></i><span id="btnBack">Voltar</span></a>
         <div class="caixa">
             <h1 class="titulo">Editar Perfil</h1>
-            <form id="editar" method="post" enctype="multipart/form-data">
+            <form id="editar" action="back_editar_perfil.php" method="post" enctype="multipart/form-data">
                 <div class="row mb-3">
                     <div class="col-lg-6">
                         <label for="nome">Nome</label>
@@ -69,18 +94,18 @@ include 'back_editar_perfil.php';
                     <div class="col-lg-6">
                         <label for="senhaAntiga">Senha antiga</label>
                         <span class="mensagem" id="mensagem-senha"></span>
-                        <input type="password" class="form-control" id="senhaAntiga" name="senhaAntiga" required>
+                        <input type="password" class="form-control" id="senhaAntiga" name="senhaAntiga">
                     </div>
                     <div class="col-lg-6">
                         <label for="senha">Nova Senha</label>
                         <span class="mensagem" id="mensagem-senha"></span>
-                        <input type="password" class="form-control" id="senha" name="senha" pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$" maxlength="50" required>
+                        <input type="password" class="form-control" id="senha" name="senha" pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$" maxlength="50">
                         <span id="descsenha">6 caracteres (uma letra maiúscula e um número)</span>
                     </div>
                     <div class="col-lg-6">
                         <label for="confirmarSenha">Confirmar Senha</label>
                         <span class="mensagem" id="mensagem-confirmarSenha"></span>
-                        <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" pattern=".+" required>
+                        <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" pattern=".+">
                     </div>
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
@@ -90,16 +115,17 @@ include 'back_editar_perfil.php';
                             <div class="mt-4">
                                 <img id="profilePreview" class="profile-pic" src="" alt="Profile Picture Preview">
                             </div>
-                            <input type="file" class="mt-4 mb-3 form-control" id="profilePicture" name="profilePicture" accept="image/*" onchange="previewImage(event)">
+                            <input type="file" class="mt-4 mb-3 form-control" id="profilePicture" name="profilePicture" accept="image/*">
                         </div>
                     </div>
                 </div>
                 <div class="btn-criar">
-                    <button class="editarConta" type="submit" onclick="enviar()">Salvar<i class="fas fa-arrow-right"></i></button>
+                    <button class="editarConta" type="submit">Salvar<i class="fas fa-arrow-right"></i></button>
                 </div>
             </form>
         </div>
     </div>
     <script src="../editar_perfil/editar_perfil.js"></script>
 </body>
+
 </html>

@@ -47,9 +47,6 @@ function enviar() {
     return false
 }
 
-// function redirecionar() {
-//     window.location.href = '../editar_perfil/editar_perfil.php';
-// }
 
 document.getElementById('criarConta').addEventListener('click', redirecionar);
 

@@ -1,11 +1,6 @@
 <?php
 session_start();
 include("../conexaobd/conexao.php");
-
-if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
-    header("Location: ../homepage/index.php");
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +44,7 @@ if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
                           <i class="bi person-icon bi-person"></i>
                           <div class="form-group">
                               <label class="mb-2" for="email">Email </label>
-                              <input class="form-control" id="email" name="email" type="email" placeholder="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required maxlength="50"/>
+                              <input class="form-control" id="email" name="email-login" type="email" placeholder="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required maxlength="50"/>
                           </div>
                           <div class="form-group mt-3">
                               <label class="mb-2" for="password">Senha</label>
