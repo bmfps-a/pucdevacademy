@@ -2,7 +2,7 @@
 include("../conexaobd/conexao.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
+    $email = $_POST["email-login"];
     $senha = md5($_POST["password"]); 
     $sql = "SELECT * FROM Funcionario WHERE email = '$email' AND senha = '$senha'";
     $result = $conn->query($sql);

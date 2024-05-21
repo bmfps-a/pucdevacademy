@@ -70,7 +70,7 @@ document.getElementById('tel').addEventListener('input', function() { validar('t
 document.getElementById('senha').addEventListener('input', function() { validar('senha'); });
 document.getElementById('confirmarSenha').addEventListener('input', function() { validar('confirmarSenha'); });
 
-$(document).ready(function() {
+(document).ready(function() {
     $('#nome').inputmask({
         regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
         greedy: false

@@ -37,7 +37,7 @@ include("../conexaobd/conexao.php");
                         <input type="radio" class="btn-check" name="tipo" id="colaborador" autocomplete="off" checked>
                         <label class="btn btn-primary btn-lg colaborador-btn" for="colaborador">Colaborador</label>      
                         <input type="radio" class="btn-check" name="tipo" id="empresa" autocomplete="off">
-                        <label class="btn btn-primary btn-lg empresa-btn" for="empresa">Empresa</label>
+                        <label class="btn btn-primary btn-lg empresa-btn" for="empresa" name="empresa">Empresa</label>
                     </div>
                     
                       <form id="loginform" action="login-colaborador-bd.php" method="post">
@@ -63,4 +63,5 @@ include("../conexaobd/conexao.php");
       </div>
   </div>
 </body>
+<script src="redirecionarcriarconta.js"></script>
 </html>

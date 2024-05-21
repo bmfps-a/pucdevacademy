@@ -98,7 +98,6 @@
             </div>
         </div>
     </footer>
-    <script src="/progweb/pucdevacademy/homepage/script.js"></script>
 </body>
 
 </html>

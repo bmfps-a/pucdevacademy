@@ -43,12 +43,12 @@ function enviar() {
         console.log(document.getElementById("confirmarSenha").value)
         return true
     }
-    window.location.href = '../editar_perfil/editar_perfil.php';
+    window.location.href = '../login/login.php';
     return false
 }
 
 
-document.getElementById('criarConta').addEventListener('click', redirecionar);
+// document.getElementById('criarConta').addEventListener('click', redirecionar);
 
 $(document).ready(function() {
     $('#nome').inputmask({

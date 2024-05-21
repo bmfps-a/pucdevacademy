@@ -2,12 +2,6 @@
 session_start();
 include("../conexaobd/conexao.php");
 
-if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
-    header("Location: ../homepage/index.php");
-}
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
