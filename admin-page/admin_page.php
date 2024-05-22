@@ -50,7 +50,7 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a onclick="redirecionar()" id="sair" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Sair</span>
                 </a>
@@ -110,6 +110,11 @@
                     });
             });
         });
+
+        function redirecionar() {
+            window.location.href = '../homepage/index.php';
+        }
+        document.getElementById('sair').addEventListener('click', redirecionar);
     </script>
 </body>
 
