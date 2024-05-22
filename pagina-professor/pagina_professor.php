@@ -64,7 +64,7 @@ if (!$result) {
             </li>
         </ul>
         <div class="sidebar-footer">
-            <a href="../login/logout.php" class="sidebar-link">
+            <a href="../homepage/index.php" class="sidebar-link">
                 <i class="lni lni-exit"></i>
                 <span>Sair</span>
             </a>
