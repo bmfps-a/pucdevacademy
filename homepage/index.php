@@ -1,3 +1,40 @@
+<?php
+session_start();
+include("../conexaobd/conexao.php");
+$buttonText = "Login/Cadastro";
+$buttonLink = "../login/login.php";
+
+if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) {
+        session_unset();
+        session_destroy();
+        header("Location: ../homepage/index.php");
+        exit();
+    }
+
+    $_SESSION['LAST_ACTIVITY'] = time();
+}
+
+if (isset($_SESSION['emailcolaborador'])) {
+    $loggedInEmail = $_SESSION['emailcolaborador'];
+    $buttonText = "Dashboard";
+    $buttonLink = "../admin-page/admin_page.php";
+} elseif (isset($_SESSION['emailempresa'])) {
+    $loggedInEmail = $_SESSION['emailempresa'];
+    $buttonText = "Placeholder";
+    $buttonLink = "../homepage/index.php";
+} else {
+    $loggedInEmail = "";
+}
+
+if (isset($_POST['logout'])) {
+    session_unset();
+    session_destroy();
+    header("Location: ../homepage/index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,38 +48,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- CSS DO PROJETO -->
     <link rel="stylesheet" href="style.css">
     <!-- JavaScript bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>PucDevAcademy</title>
 </head>
 
-<body id="home">
+<body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
-        <div class="container py-3">
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items" aria-controls="navbar-items" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="container py-3"> 
+        <!-- Exibe o email da pessoa logada -->
+            <?php if (!empty($loggedInEmail)) : ?>
+            <a href="../editar_perfil/editar_perfil.php"><span class="navbar-text me-3" style="color:white"><?php echo "Logado como: " . $loggedInEmail; ?></span></a>
+            <?php endif; ?>
+            <!-- Botão de logoff -->
+            <?php if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) : ?>
+                <form method="POST" class="d-inline">
+                    <button class="btn btn-danger me-3" type="submit" name="logout">Logout</button>
+                </form>
+            <?php endif; ?>
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items"
+                aria-controls="navbar-items" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi bi-list"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbar-items">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-scroll" aria-current="page" href="#home"><i class="bi bi-house"></i>
+                        <a class="nav-link nav-link-scroll" aria-current="page" href="#"><i class="bi bi-house"></i>
                             Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-scroll" href="#about"><i class="bi bi-code-square"></i> Sobre
-                            nós</a>
+                        <a class="nav-link nav-link-scroll" href="#about"><i class="bi bi-code-square"></i> Sobre nós</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-scroll" href="#contact"><i class="bi bi-telephone"></i> Contato</a>
                     </li>
-                    <a class="btn-login" href="../login/login.php">Login/Cadastro</a>
                 </ul>
+                <a class="btn-login" href="<?php echo $buttonLink; ?>" role="button"><?php echo $buttonText; ?></a>
             </div>
         </div>
     </nav>
@@ -93,11 +142,7 @@
             </div>
             <div class="col-md-4 text-center">
                 <div class="mapa-hotmilk">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.5356043580546!2d-49.25556108818815!3d-25.45378497745296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce4f07e4d346b%3A0x280bed912bc03c41!2sHOTMILK!5e0!3m2!1spt-BR!2sbr!4v1710177584363!5m2!1spt-BR!2sbr" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
-
-</html>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.5356043580546!2d-49.25556108818815!3d-25.45378497745296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce4f07e4d346b%3A0x280bed912bc03c41!2sHOTMILK!5e0!3m2!1spt-BR!2sbr!4v1710177584363!5m2!1spt-BR!2sbr"
+                        width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer
