@@ -38,8 +38,10 @@ if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
                   <div class="formContainer">
                       <div class="btn-group" role="group" aria-label="#">
                         <input type="radio" class="btn-check" name="tipo" id="colaborador" autocomplete="off" checked>
-                        <label class="btn btn-primary btn-lg colaborador-btn" for="colaborador">Colaborador</label>      
-                        <input type="radio" class="btn-check" name="tipo" id="empresa" autocomplete="off">
+                        <label class="btn btn-primary btn-lg colaborador-btn" for="colaborador">Colaborador</label>
+                        <input type="radio" class="btn-check" name="tipo" id="aluno" autocomplete="off" checked>
+                        <label class="btn btn-primary btn-lg aluno-btn" for="aluno">Aluno</label>      
+                        <input type="radio" class="btn-check" name="tipo" id="empresa" autocomplete="off" checked>
                         <label class="btn btn-primary btn-lg empresa-btn" for="empresa" name="empresa">Empresa</label>
                     </div>
                     

@@ -6,7 +6,7 @@ body{
 .row{
     background-color:#272721;
     color: #fff;
-    width: 300px;
+    width: 450px;
     height: 424px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -39,8 +39,22 @@ body{
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
-
 input[type="radio"].btn-check:checked + .colaborador-btn {
+    background-color: #0b0b0b; /* Altera a cor de fundo do botão "Colaborador" selecionado */
+    border-color: #ffffff; /* Mantém a borda branca quando selecionado */
+}
+.aluno-btn {
+   background-color: #272721; 
+    color: #fff; 
+    border-right: 2px solid #ffffff;
+    border-top: none;
+    border-left: 2px solid #ffffff ;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+}
+
+input[type="radio"].btn-check:checked + .aluno-btn {
     background-color: #0b0b0b; /* Altera a cor de fundo do botão "Colaborador" selecionado */
     border-color: #ffffff; /* Mantém a borda branca quando selecionado */
 }
