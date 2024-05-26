@@ -55,6 +55,16 @@ if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
                         <input type="email" class="form-control" id="email" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" maxlength="50" required>
                     </div>
                     <div class="col-lg-6">
+                        <label for="instituicao">Instituição de Ensino</label>
+                        <span class="mensagem" id="mensagem-instituicao"></span>
+                        <input type="instituicao" class="form-control" id="instituicao" name="instituicao"  pattern="^[A-Za-z]{4,}$" maxlength="50" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="curso">Curso</label>
+                        <span class="mensagem" id="mensagem-curso"></span>
+                        <input type="curso" class="form-control" id="curso" name="curso"  pattern="^[A-Za-z]{4,}$" maxlength="50" required>
+                    </div>
+                    <div class="col-lg-6">
                         <label for="telefone">Telefone</label>
                         <span class="mensagem" id="mensagem-tel"></span>
                         <input type="tel" class="form-control" id="tel" name="telefone" pattern="(\(\d{2}\) \d{5}-\d{4}|(\d{2} [89]\d{4}-\d{4}))" required>
