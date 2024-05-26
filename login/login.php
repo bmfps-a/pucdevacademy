@@ -39,14 +39,16 @@ if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
                       <div class="btn-group" role="group" aria-label="#">
                         <input type="radio" class="btn-check" name="tipo" id="colaborador" autocomplete="off" checked>
                         <label class="btn btn-primary btn-lg colaborador-btn" for="colaborador">Colaborador</label>
+                        
                         <input type="radio" class="btn-check" name="tipo" id="aluno" autocomplete="off" checked>
                         <label class="btn btn-primary btn-lg aluno-btn" for="aluno">Aluno</label>      
+
                         <input type="radio" class="btn-check" name="tipo" id="empresa" autocomplete="off" checked>
                         <label class="btn btn-primary btn-lg empresa-btn" for="empresa" name="empresa">Empresa</label>
                     </div>
                     
                       <form id="loginform" action="login-colaborador-bd.php" method="post">
-                          <i class="bi person-icon bi-person"></i>
+                          <i class="person-icon bi-person"></i>
                           <div class="form-group">
                               <label class="mb-2" for="email">Email </label>
                               <input class="form-control" id="email" name="email-login" type="email" placeholder="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required maxlength="50"/>
