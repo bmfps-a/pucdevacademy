@@ -4,7 +4,7 @@ include("../conexaobd/conexao.php");
 $buttonText = "Login/Cadastro";
 $buttonLink = "../login/login.php";
 
-if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
+if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa']) || isset($_SESSION['emailaluno']) || isset($_SESSION['emailadmin'])) {
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) {
         session_unset();
         session_destroy();
@@ -21,8 +21,16 @@ if (isset($_SESSION['emailcolaborador'])) {
     $buttonLink = "../admin-page/admin_page.php";
 } elseif (isset($_SESSION['emailempresa'])) {
     $loggedInEmail = $_SESSION['emailempresa'];
-    $buttonText = "Placeholder";
-    $buttonLink = "../homepage/index.php";
+    $buttonText = "Gerenciar Projetos";
+    $buttonLink = "../pagina-empresa/empresa-page.php";
+} elseif (isset($_SESSION['emailaluno'])) {
+    $loggedInEmail = $_SESSION['emailaluno'];
+    $buttonText = "Projeto";
+    $buttonLink = "../pagina-aluno/aluno-page.php";
+} elseif (isset($_SESSION['emailadmin'])) {
+    $loggedInEmail = $_SESSION['emailadmin'];
+    $buttonText = "AdminCenter";
+    $buttonLink = "../admin-page/admin_page.php";
 } else {
     $loggedInEmail = "";
 }
@@ -69,7 +77,7 @@ if (isset($_POST['logout'])) {
             <a href="../editar_perfil/editar_perfil.php"><span class="navbar-text me-3" style="color:white"><?php echo "Logado como: " . $loggedInEmail; ?></span></a>
             <?php endif; ?>
             <!-- Botão de logoff -->
-            <?php if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) : ?>
+            <?php if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa']) || isset($_SESSION['emailaluno']) || isset($_SESSION['emailadmin'])) : ?>
                 <form method="POST" class="d-inline">
                     <button class="btn btn-danger me-3" type="submit" name="logout">Logout</button>
                 </form>

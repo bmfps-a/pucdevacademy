@@ -31,8 +31,8 @@ if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
     <div class="container-lg">
         <a href="../login/login.php" class="btn-voltar" ><i class="bi bi-arrow-left"></i><span id="btnBack">Voltar</span></a>
         <div class="caixa">
-            <h1 class="titulo">Cadastro de Alunos</h1>
-            <form id="registrar" action="cadastro-usuario-bd.php" method="post">
+            <h1 class="titulo">Cadastro de Aluno</h1>
+            <form id="registrar" action="cadastro-aluno-bd.php" method="post">
                 <div class="row mb-3">
                     <div class="col-lg-6">
                         <label for="nome">Nome</label>
@@ -53,16 +53,6 @@ if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
                         <label for="email">E-mail</label>
                         <span class="mensagem" id="mensagem-email"></span>
                         <input type="email" class="form-control" id="email" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" maxlength="50" required>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="instituicao">Instituição de Ensino</label>
-                        <span class="mensagem" id="mensagem-instituicao"></span>
-                        <input type="instituicao" class="form-control" id="instituicao" name="instituicao"  pattern="^[A-Za-z]{4,}$" maxlength="50" required>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="curso">Curso</label>
-                        <span class="mensagem" id="mensagem-curso"></span>
-                        <input type="curso" class="form-control" id="curso" name="curso"  pattern="^[A-Za-z]{4,}$" maxlength="50" required>
                     </div>
                     <div class="col-lg-6">
                         <label for="telefone">Telefone</label>
