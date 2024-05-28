@@ -1,3 +1,15 @@
+document.getElementById('foto').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('profilePreview').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+
 function validar(campoId) {
     let campo = document.getElementById(campoId);
     let mensagem = document.getElementById("mensagem-" + campoId);
@@ -54,13 +66,28 @@ document.getElementById('tel').addEventListener('input', function() { validar('t
 document.getElementById('senha').addEventListener('input', function() { validar('senha'); });
 document.getElementById('confirmarSenha').addEventListener('input', function() { validar('confirmarSenha'); });
 
-// (document).ready(function() {
-//     $('#nome').inputmask({
-//         regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
-//         greedy: false
-//     });
-//     $('#cpf').inputmask('999.999.999-99');
-//     $('#ra').inputmask('99999999');
-//     $('#tel').inputmask('(99) 99999-9999');   
-// });
+$(document).ready(function (){
+    $('#nome').inputmask({
+        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
+        greedy: false
+    });
+    $('#cpf').inputmask('999.999.999-99');
+    $('#ra').inputmask('99999999');
+    $('#tel').inputmask('(99) 99999-9999');   
+});
 
+
+document.getElementById('foto').addEventListener('change', function() {
+    const fileInput = this;
+    const filePath = fileInput.value;
+    const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+
+    if (!allowedExtensions.exec(filePath)) {
+        alert('Por favor, selecione um arquivo JPG ou PNG.');
+        fileInput.value = ''; // Limpa o campo de entrada de arquivo
+        return false;
+    } else {
+        // Opcional: se você quiser fazer algo com o arquivo selecionado, você pode fazer isso aqui
+        console.log('Arquivo válido selecionado:', fileInput.files[0]);
+    }
+});

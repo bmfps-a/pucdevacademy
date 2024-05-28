@@ -19,7 +19,7 @@ if (isset($_SESSION['emailcolaborador'])) {
         $ra = $row["ra"];
         $email = $row["email"];
         $telefone = $row["telefone"];
-        $foto_colaborador = $row["foto_colaborador"];
+        $fotoColaborador = $row["foto_colaborador"];
     } else {
         echo "Usuário não encontrado.";
         exit();
@@ -49,7 +49,7 @@ if (isset($_SESSION['emailcolaborador'])) {
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- CSS DO PROJETO -->
-    <link rel="stylesheet" href="editar_perfil.css">
+    <link rel="stylesheet" href="../editar_perfil/editar_perfil.css">
     <!-- JavaScript bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
@@ -113,7 +113,7 @@ if (isset($_SESSION['emailcolaborador'])) {
                         <div class="text-center">
                             <label for="foto" class="fs-3">Imagem de Perfil</label>
                             <div class="mt-4">
-                            <img id="profilePreview" class="profile-pic" src="<?php echo htmlspecialchars($foto_colaborador); ?>">
+                            <img id="profilePreview" class="profile-pic w-50" src="data:image/jpeg;base64,<?php echo base64_encode($fotoColaborador); ?>">
                             </div>
                             <input type="file" class="mt-4 mb-3 form-control" id="foto" name="foto">
                         </div>
@@ -125,6 +125,8 @@ if (isset($_SESSION['emailcolaborador'])) {
             </form>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
     <script src="../editar_perfil/editar_perfil.js"></script>
 </body>
 
