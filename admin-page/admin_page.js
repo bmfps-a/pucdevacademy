@@ -40,6 +40,5 @@ function searchContent() {
       content.style.display = "";
       return;
   }
-
   content.style.display = content.innerHTML.toLowerCase().includes(input) ? "" : "none";
 }
