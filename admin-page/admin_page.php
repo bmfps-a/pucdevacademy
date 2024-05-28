@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página do Administrador</title>
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./admin_page.css">
 </head>
 
@@ -24,6 +23,12 @@
                 </div>
             </div>
             <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a class="sidebar-link" id="editarPerfil" onclick="redirecionarEditarPerfil()">
+                        <i class="lni lni-pencil"></i>
+                        <span>Editar Perfil</span>
+                    </a>
+                </li>
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link" data-target="alunos.php" data-category="Alunos">
                         <i class="lni lni-user"></i>
@@ -72,17 +77,17 @@
                     </ul>
                 </div>
             </nav>
-                <div class="navbar-collapse collapse">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="/account.png" class="avatar img-fluid" alt="">
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end rounded">
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                            <img src="" class="avatar img-fluid" alt="">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end rounded">
+                        </div>
+                    </li>
+                </ul>
+            </div>
             </nav>
             <main class="content px-3 py-4" id="content">
                 <!-- Conteúdo dinâmico será carregado aqui -->
@@ -100,10 +105,10 @@
             </footer>
         </div>
     </div>
-    <script src="./admin_page.js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pF3WhENqqXJlSS7XebYpZ30clWs0U7S/J5nTrWplzOHny/jI/03F5I6sjmQJ5iBA" crossorigin="anonymous">
+    <script src="./admin_page.js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-hnHg6nhpSFAXMWDQHRxC/c/FlcLLrSpl3msDaJeF6lhHNvlOEGgCb4PYU18htHrl" crossorigin="anonymous">
     </script>
-    
+
 </body>
 
 </html>

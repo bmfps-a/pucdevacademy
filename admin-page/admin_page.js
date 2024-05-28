@@ -6,6 +6,10 @@ hamBurger.addEventListener("click", function () {
 function redirecionar() {
   window.location.href = '../homepage/index.php';
 }
+function redirecionarEditarPerfil() {
+  window.location.href = '../editar_perfil/editar_perfil.php';
+}
+
 document.getElementById('sair').addEventListener('click', redirecionar);
 
 document.querySelectorAll('.sidebar-link').forEach(link => {

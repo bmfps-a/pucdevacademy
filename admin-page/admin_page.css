@@ -15,6 +15,10 @@ li {
     list-style: none;
 }
 
+#editarPerfil{
+    cursor: pointer;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
 }
