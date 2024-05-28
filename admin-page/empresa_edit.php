@@ -1,33 +1,32 @@
-<?php
-session_start();
-require '../conexaobd/conexao.php';
+<!-- <?php
+// session_start();
+// require '../conexaobd/conexao.php';
 
-if (isset($_GET['cpf'])) {
-    $cpf = $_GET['cpf'];
+// if (isset($_GET['cnpj'])) {
+//     $cnpj = $_GET['cnpj'];
 
-    $sql = "SELECT * FROM aluno_puc WHERE CPF = '$cpf'";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->get_result();
+//     $sql = "SELECT * FROM empresa WHERE CNPJ = '$cnpj'";
+//     $stmt = $conn->prepare($sql);
+//     $stmt->execute();
+//     $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $nome = $row["nome"];
-        $cpf = $row["cpf"];
-        $ra = $row["ra"];
-        $email = $row["email"];
-        $telefone = $row["telefone"];
-        $fotoAluno = $row["foto_aluno"];
-    } else {
-        echo "Usuário não encontrado.";
-        exit();
-    }
-} else {
-    header("Location: ../admin-page/alunos.php");
-    exit();
-}
+//     if ($result->num_rows > 0) {
+//         $row = $result->fetch_assoc();
+//         $cnpj = $row["CNPJ"];
+//         $nome_empresa = $row["Nome_empresa"];
+//         $nome_fantasia = $row["Nome_fantasia"];
+//         $ramo_empresarial = $row["Ramo_empresarial"];
+//         $telefone = $row["telefone"];
 
-?>
+//     } else {
+//         echo "empresa não encontrada.";
+//         exit();
+//     }
+// } else {
+//     header("Location: ../admin-page/empresa.php");
+//     exit();
+// }
+?> -->
 
 
 <!DOCTYPE html>
@@ -47,40 +46,35 @@ if (isset($_GET['cpf'])) {
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- CSS DO PROJETO -->
-    <link rel="stylesheet" href="../admin-page/alunos_edit.css">
+    <link rel="stylesheet" href="../admin-page/empresa_edit.css">
     <!-- JavaScript bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-    <title>Editar Dados do Aluno</title>
+    <title>Editar Dados da Empresa</title>
 </head>
 
 <body>
     <div class="container-lg bg-color-black">
         <a href="../admin-page/admin_page.php" class="btn-voltar"><i class="bi bi-arrow-left"></i><span id="btnBack">Voltar</span></a>
         <div class="caixa">
-            <h1 class="titulo">Editar Dados do Aluno</h1>
-            <form id="editar" action="alunos_update.php" method="post" enctype="multipart/form-data">
+            <h1 class="titulo">Editar Dados da empresa</h1>
+            <form id="editar" action="empresa_update.php" method="post" enctype="multipart/form-data">
                 <div class="row mb-3">
-                    <div class="col-lg-6">
-                        <label for="nome">Nome</label>
-                        <span class="mensagem" id="mensagem-nome"></span>
-                        <input type="text" value="<?php echo htmlspecialchars($nome); ?>" class="form-control" id="nome" name="nome" pattern="(?:[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*[A-Za-zÀ-ÖØ-öø-ÿçÇ]){4}[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*" maxlength="50" required>
+                <div class="col-lg-6">
+                        <label for="nome_empresa">Nome da Empresa</label>
+                        <span class="mensagem" id="mensagem-nome_empresa"></span>
+                        <input type="nome_empresa" value="<?php echo htmlspecialchars($nome_empresa); ?>" class="form-control" id="nome_empresa" name="nome_empresa" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" maxlength="50" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="cpf">CPF</label>
-                        <span class="mensagem" id="mensagem-cpf"></span>
-                        <input type="text" value="<?php echo htmlspecialchars($cpf); ?>" class="form-control" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                        <label for="nome_fantasia">Nome_fantasia</label>
+                        <span class="mensagem" id="mensagem-nome_fantasia"></span>
+                        <input type="text" value="<?php echo htmlspecialchars($nome_fantasia); ?>" class="form-control" id="nome_fantasia" name="nome_fantasia" pattern="(?:[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*[A-Za-zÀ-ÖØ-öø-ÿçÇ]){4}[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*" maxlength="50" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="ra">RA</label>
-                        <span class="mensagem" id="mensagem-ra"></span>
-                        <input type="text" value="<?php echo htmlspecialchars($ra); ?>" class="form-control" id="ra" name="ra" pattern="\d{8}" required>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="email">E-mail</label>
-                        <span class="mensagem" id="mensagem-email"></span>
-                        <input type="email" value="<?php echo htmlspecialchars($email); ?>" class="form-control" id="email" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" maxlength="50" required>
-                    </div>
+                        <label for="cnpj">CNPJ</label>
+                        <span class="mensagem" id="mensagem-cnpj"></span>
+                        <input type="text" value="<?php echo htmlspecialchars($cnpj); ?>" class="form-control" id="cnpj" name="cnpj" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                    </div>                 
                     <div class="col-lg-6">
                         <label for="telefone">Telefone</label>
                         <span class="mensagem" id="mensagem-tel"></span>
@@ -106,17 +100,6 @@ if (isset($_GET['cpf'])) {
                         <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" pattern=".+">
                     </div>
                 </div>
-                <div class="mt-4 d-flex justify-content-center">
-                    <div class="mb-3">
-                        <div class="text-center">
-                            <label for="foto" class="fs-3">Imagem de Perfil</label>
-                            <div class="mt-4">
-                            <img id="profilePreview" class="profile-pic w-50" src="data:image/jpeg;base64,<?php echo base64_encode($fotoAluno); ?>">
-                            </div>
-                            <input type="file" class="mt-4 mb-3 form-control" id="foto" name="foto">
-                        </div>
-                    </div>
-                </div>
                 <div class="btn-criar">
                     <button class="editarConta" type="submit">Salvar<i class="fas fa-arrow-right"></i></button>
                 </div>
@@ -125,7 +108,7 @@ if (isset($_GET['cpf'])) {
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
-    <script src="../editar_perfil/editar_perfil.js"></script>
+    <script src="../editar_perfil/editar_empresa.js"></script>
 </body>
 
-</html>
+</html> 
