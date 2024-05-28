@@ -58,14 +58,20 @@
         </aside>
         <div class="main">
             <nav class="navbar navbar-expand px-4 py-3">
-                <form action="#" class="d-none d-sm-inline-block">
+                <form class="d-none d-sm-inline-block" onsubmit="return false;">
                     <div class="input-group input-group-navbar">
-                        <input type="text" class="form-control border-0 rounder-0" placeholder="Pesquisar...">
-                        <button class="btn border-0 rounder-0" type="button">
+                        <input type="text" id="searchInput" class="form-control border-0 rounder-0" placeholder="Pesquisar..." oninput="searchContent()">
+                        <button class="btn border-0 rounder-0" type="button" onclick="searchContent()">
                             Pesquisar
                         </button>
                     </div>
                 </form>
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Navbar content unchanged -->
+                    </ul>
+                </div>
+            </nav>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
@@ -98,20 +104,7 @@
         integrity="sha384-pF3WhENqqXJlSS7XebYpZ30clWs0U7S/J5nTrWplzOHny/jI/03F5I6sjmQJ5iBA" crossorigin="anonymous">
     </script>
     <script src="./admin_page.js"></script>
-    <script>
-        document.querySelectorAll('.sidebar-link').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = this.getAttribute('data-target');
-                const category = this.getAttribute('data-category'); // Adicionando a captura do nome da categoria
-                fetch(target)
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('content').innerHTML = `<h2>${category}</h2>` + data; // Exibindo o nome da categoria
-                    });
-            });
-        });
-    </script>
+    
 </body>
 
 </html>
