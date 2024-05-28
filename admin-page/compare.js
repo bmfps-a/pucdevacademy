@@ -13,6 +13,8 @@ function redirecionarEditarPerfil() {
 }
 
 document.getElementById('sair').addEventListener('click', redirecionar);
+document.getElementById('editarPerfil').addEventListener('click', redirecionar);
+
 
 document.getElementById('editarPerfil').addEventListener('click', function(e) {
     e.preventDefault(); // Impede o comportamento padrão do link

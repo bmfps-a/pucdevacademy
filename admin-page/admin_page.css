@@ -15,9 +15,6 @@ li {
     list-style: none;
 }
 
-#editarPerfil{
-    cursor: pointer;
-}
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -51,6 +48,10 @@ body {
 #sidebar.expand {
     width: 260px;
     min-width: 260px;
+}
+
+.sidebar-link {
+    cursor: pointer;
 }
 
 .toggle-btn {

@@ -106,7 +106,7 @@
         </div>
     </div>
     <script src="./admin_page.js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-hnHg6nhpSFAXMWDQHRxC/c/FlcLLrSpl3msDaJeF6lhHNvlOEGgCb4PYU18htHrl" crossorigin="anonymous">
+    integrity="sha384-zO0RSMMkUJwS4rFMz3TZWHUAQ+GTkd5obAbycQ3iAgd7av5bgcYJYKEQWSGAirDy" crossorigin="anonymous">
     </script>
 
 </body>
