@@ -42,3 +42,4 @@ function searchContent() {
   }
   content.style.display = content.innerHTML.toLowerCase().includes(input) ? "" : "none";
 }
+
