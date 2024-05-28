@@ -14,27 +14,6 @@ if (isset($_SESSION['emailcolaborador'])) {
     $novaSenha = mysqli_real_escape_string($conn, $_POST['senha']);
     $confirmarSenha = mysqli_real_escape_string($conn, $_POST['confirmarSenha']);
 
-    // Processo de upload da foto
-    if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
-        $uploadDir = 'uploads/';
-        $uploadFile = $uploadDir . basename($_FILES['foto']['name']);
-
-        // Verifica se o diretório de upload existe, se não, cria-o
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0755, true);
-        }
-
-        // Move o arquivo enviado para o diretório de destino
-        if (move_uploaded_file($_FILES['foto']['tmp_name'], $uploadFile)) {
-            $fotoPerfil = $uploadFile;
-        } else {
-            echo "Ocorreu um erro ao enviar o arquivo.";
-            exit();
-        }
-    } else {
-        $fotoPerfil = ''; // Ou o valor atual do banco de dados se necessário
-    }
-
     $sql = "UPDATE colaborador_puc SET nome='$nome', cpf='$cpf', ra='$ra', email='$email', telefone='$telefone', foto_colaborador='$fotoPerfil' WHERE email='$email_login'";
 
     // Executa a consulta SQL

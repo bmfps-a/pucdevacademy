@@ -113,7 +113,7 @@ if (isset($_SESSION['emailcolaborador'])) {
                         <div class="text-center">
                             <label for="foto" class="fs-3">Imagem de Perfil</label>
                             <div class="mt-4">
-                            <img id="profilePreview" class="profile-pic" src="<?php echo htmlspecialchars($foto_colaborador); ?>">
+                            <img id="profilePreview" class="foto-colaborador" name="foto-colaborador" src="<?php echo htmlspecialchars($foto_colaborador); ?>">
                             </div>
                             <input type="file" class="mt-4 mb-3 form-control" id="foto" name="foto">
                         </div>
