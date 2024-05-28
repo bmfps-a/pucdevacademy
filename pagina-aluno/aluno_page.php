@@ -2,43 +2,6 @@
 session_start();
 require '../conexaobd/conexao.php';
 
-if (isset($_GET['cpf'])) {
-    $cpf = $_GET['cpf'];
-
-    // Consulta para verificar se o aluno está associado a um colaborador
-    $sql = "SELECT c.Nome, c.Telefone 
-            FROM Aluno_puc a 
-            LEFT JOIN Colaborador_Puc c 
-            ON a.fk_Colaborador_Puc_CPF = c.CPF";   
-           
-    
-    if ($stmt = $conn->prepare($sql)) {
-        $stmt->bind_param("s", $cpf);
-        $stmt->execute();
-        $stmt->store_result();
-        
-        if ($stmt->num_rows > 0) {
-            $stmt->bind_result($nomeColaborador, $telefoneColaborador);
-            $stmt->fetch();
-            
-            if ($nomeColaborador && $telefoneColaborador) {
-                $colaborador = "Nome do Colaborador: $nomeColaborador<br>Telefone: $telefoneColaborador";
-            } else {
-                $colaborador = "Não está inscrito em nenhum projeto";
-            }
-        } else {
-            $colaborador = "Não está inscrito em nenhum projeto";
-        }
-        
-        $stmt->close();
-    } else {
-        $colaborador = "Erro na consulta ao banco de dados";
-    }
-} else {
-    $colaborador = "CPF não fornecido";
-}
-
-// Verifica se o email do aluno está na sessão e exibe no canto superior direito
 $emailAluno = isset($_SESSION['emailaluno']) ? $_SESSION['emailaluno'] : '';
 ?>
 <!DOCTYPE html>
@@ -65,24 +28,25 @@ $emailAluno = isset($_SESSION['emailaluno']) ? $_SESSION['emailaluno'] : '';
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="#" class="sidebar-link" data-target="aluno_projeto.php" data-category="Seu Projeto">
                         <i class="lni lni-rocket"></i>
                         <span>Seu Projeto</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                    <a href="#" class="sidebar-link" data-target="aluno_colaborador.php" data-category="Seu Colaborador">
                         <i class="lni lni-pencil-alt"></i>
                         <span>Seu Colaborador</span>
                     </a>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="../homepage/index.php" class="sidebar-link">
+                <a onclick="redirecionar()" id="sair" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Sair</span>
                 </a>
             </div>
+            
         </aside>
         <div class="main">
             <nav class="navbar navbar-expand px-4 py-3">
@@ -108,42 +72,9 @@ $emailAluno = isset($_SESSION['emailaluno']) ? $_SESSION['emailaluno'] : '';
                 </div>
             </nav>
             <main class="content px-3 py-4">
-                <div class="container-fluid">
-                    <div class="mb-3">
-                        <h3 class="fw-bold fs-4 mb-3">Página do Projeto</h3>
-                        <div class="row">
-                            <div class="col-12 col-md-4">
-                                <div class="card border-0">
-                                    <div class="card-body py-4">
-                                        <h5 class="mb-2 fw-bold">
-                                            Projeto X
-                                        </h5>
-                                        <p class="mb-2 fw-bold">
-                                            Realizar sistema MVC
-                                        </p>
-                                        <div class="mb-0">
-                                            <span class="badge text-success me-2">
-                                                90.0% para concluir
-                                            </span>
-                                            <span class="fw-bold">
-                                                atualizado: 30 min
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <div class="card border-0">
-                                <div class="card-body py-4">
-                                    <h5 class="mb-2 fw-bold">Informações do Colaborador</h5>
-                                    <p class="mb-2">
-                                        <?php echo $colaborador; ?>
-                                    </p>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
+                <div id="content" class="container-fluid">
+                    <h3 class="fw-bold fs-4 mb-3">Bem-vindo</h3>
+                    <p>Selecione uma opção no menu à esquerda.</p>
                 </div>
             </main>
             <footer class="footer">
@@ -157,4 +88,7 @@ $emailAluno = isset($_SESSION['emailaluno']) ? $_SESSION['emailaluno'] : '';
             </footer>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pF3WhENqqXJlSS7XebYpZ30clWs0U7S/J5nTrWplzOHny/jI/03F5I6sjmQJ5iBA" crossorigin="anonymous"></script>
+    <script src="./aluno_page.js"></script>
+</body>
+</html>

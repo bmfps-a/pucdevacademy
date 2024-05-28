@@ -21,12 +21,12 @@ if (isset($_SESSION['emailcolaborador'])) {
     $buttonLink = "../admin-page/admin_page.php";
 } elseif (isset($_SESSION['emailempresa'])) {
     $loggedInEmail = $_SESSION['emailempresa'];
-    $buttonText = "Gerenciar Projetos";
-    $buttonLink = "../pagina-empresa/empresa-page.php";
+    $buttonText = "CriarProjetos";
+    $buttonLink = "../pagina-empresa/empresa_page.php";
 } elseif (isset($_SESSION['emailaluno'])) {
     $loggedInEmail = $_SESSION['emailaluno'];
     $buttonText = "Projeto";
-    $buttonLink = "../pagina-aluno/aluno-page.php";
+    $buttonLink = "../pagina-aluno/aluno_page.php";
 } elseif (isset($_SESSION['emailadmin'])) {
     $loggedInEmail = $_SESSION['emailadmin'];
     $buttonText = "AdminCenter";

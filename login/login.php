@@ -37,17 +37,17 @@ if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
               <div class="col-md-5 col-sm-6">
                   <div class="formContainer">
                       <div class="btn-group" role="group" aria-label="#">
-                        <input type="radio" class="btn-check" name="tipo" id="colaborador" autocomplete="off" checked>
+                        <input type="radio" class="btn-check" name="tipo" id="colaborador" autocomplete="off">
                         <label class="btn btn-primary btn-lg colaborador-btn" for="colaborador">Colaborador</label>
                         
-                        <input type="radio" class="btn-check" name="tipo" id="aluno" autocomplete="off" checked>
+                        <input type="radio" class="btn-check" name="tipo" id="aluno" autocomplete="off">
                         <label class="btn btn-primary btn-lg aluno-btn" for="aluno">Aluno</label>      
 
-                        <input type="radio" class="btn-check" name="tipo" id="empresa" autocomplete="off" checked>
+                        <input type="radio" class="btn-check" name="tipo" id="empresa" autocomplete="off">
                         <label class="btn btn-primary btn-lg empresa-btn" for="empresa" name="empresa">Empresa</label>
                     </div>
                     
-                      <form id="loginform" action="login-colaborador-bd.php" method="post">
+                      <form id="loginform" action="#" method="post">
                           <i class="person-icon bi-person"></i>
                           <div class="form-group">
                               <label class="mb-2" for="email">Email </label>
@@ -69,6 +69,20 @@ if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa'])) {
           </div>
       </div>
   </div>
+  <script>
+    document.querySelectorAll('input[name="tipo"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            let formulario = document.getElementById('loginform');
+            if (this.id === 'empresa') {
+                formulario.action = 'login-empresa-bd.php';
+            } else if(this.id === 'colaborador') {
+                formulario.action = 'login-colaborador-bd.php';
+            } else {
+                formulario.action = 'login-aluno-bd.php';
+            }
+        });
+    });
+  </script>
 </body>
 <script src="redirecionarcriarconta.js"></script>
 </html>
