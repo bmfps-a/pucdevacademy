@@ -118,9 +118,9 @@ input.form-control {
   box-shadow: 0 0 0 0.1rem rgba(255, 0, 0, 0.8);
 }
 
-.custom-img-size {
+.profile-pic {
   width: 150px;
   height: 150px;
   object-fit: cover;
-  border-radius: 5%;
+  border-radius: 50%;
 }

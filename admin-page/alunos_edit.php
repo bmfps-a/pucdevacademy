@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();
 require '../conexaobd/conexao.php';
 
 if (isset($_GET['cpf'])) {
@@ -25,7 +25,7 @@ if (isset($_GET['cpf'])) {
 } else {
     header("Location: ../admin-page/alunos.php");
     exit();
-}
+}*/
 
 ?>
 
@@ -47,7 +47,7 @@ if (isset($_GET['cpf'])) {
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- CSS DO PROJETO -->
-    <link rel="stylesheet" href="../editar_perfil/editar_perfil.css">
+    <link rel="stylesheet" href="../admin-page/alunos_edit.css">
     <!-- JavaScript bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
@@ -59,7 +59,7 @@ if (isset($_GET['cpf'])) {
         <a href="../admin-page/admin_page.php" class="btn-voltar"><i class="bi bi-arrow-left"></i><span id="btnBack">Voltar</span></a>
         <div class="caixa">
             <h1 class="titulo">Editar Dados do Aluno</h1>
-            <form id="editar" action="back_editar_perfil.php" method="post" enctype="multipart/form-data">
+            <form id="editar" action="alunos_update.php" method="post" enctype="multipart/form-data">
                 <div class="row mb-3">
                     <div class="col-lg-6">
                         <label for="nome">Nome</label>
