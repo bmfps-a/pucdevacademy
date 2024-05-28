@@ -6,21 +6,20 @@ require '../conexaobd/conexao.php';
 if (isset($_SESSION['emailcolaborador'])) {
     $email_login = $_SESSION['emailcolaborador'];
 
-    // Consulta para obter os dados do usuário com base no email
-    $sql = "SELECT cpf, nome, ra, email, telefone FROM colaborador_puc WHERE email=?";
+    $sql = "SELECT cpf, nome, ra, email, telefone, foto_colaborador FROM colaborador_puc WHERE email=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('s', $email_login);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // Existe pelo menos uma linha de resultado, então podemos exibir os dados
         $row = $result->fetch_assoc();
         $nome = $row["nome"];
         $cpf = $row["cpf"];
         $ra = $row["ra"];
         $email = $row["email"];
         $telefone = $row["telefone"];
+        $foto_colaborador = $row["foto_colaborador"];
     } else {
         echo "Usuário não encontrado.";
         exit();
@@ -29,6 +28,7 @@ if (isset($_SESSION['emailcolaborador'])) {
     header("Location: ../login/login.php");
     exit();
 }
+
 ?>
 
 
@@ -111,11 +111,11 @@ if (isset($_SESSION['emailcolaborador'])) {
                 <div class="mt-4 d-flex justify-content-center">
                     <div class="mb-3">
                         <div class="text-center">
-                            <label for="profilePicture" class="fs-3">Imagem de Perfil</label>
+                            <label for="foto" class="fs-3">Imagem de Perfil</label>
                             <div class="mt-4">
-                                <img id="profilePreview" class="profile-pic" src="" alt="Profile Picture Preview">
+                            <img id="profilePreview" class="profile-pic" src="<?php echo htmlspecialchars($foto_colaborador); ?>">
                             </div>
-                            <input type="file" class="mt-4 mb-3 form-control" id="profilePicture" name="profilePicture" accept="image/*">
+                            <input type="file" class="mt-4 mb-3 form-control" id="foto" name="foto">
                         </div>
                     </div>
                 </div>

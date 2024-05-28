@@ -1,19 +1,3 @@
-function previewImage(event) {
-    const input = event.target;
-    const preview = document.getElementById('profilePreview');
-    const reader = new FileReader();
-
-    reader.onload = function() {
-        preview.src = reader.result;
-    }
-
-    if (input.files && input.files[0]) {
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-document.getElementById('profilePicture').addEventListener('change', previewImage);
-
 function validar(campoId) {
     let campo = document.getElementById(campoId);
     let mensagem = document.getElementById("mensagem-" + campoId);
@@ -70,13 +54,13 @@ document.getElementById('tel').addEventListener('input', function() { validar('t
 document.getElementById('senha').addEventListener('input', function() { validar('senha'); });
 document.getElementById('confirmarSenha').addEventListener('input', function() { validar('confirmarSenha'); });
 
-(document).ready(function() {
-    $('#nome').inputmask({
-        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
-        greedy: false
-    });
-    $('#cpf').inputmask('999.999.999-99');
-    $('#ra').inputmask('99999999');
-    $('#tel').inputmask('(99) 99999-9999');   
-});
+// (document).ready(function() {
+//     $('#nome').inputmask({
+//         regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
+//         greedy: false
+//     });
+//     $('#cpf').inputmask('999.999.999-99');
+//     $('#ra').inputmask('99999999');
+//     $('#tel').inputmask('(99) 99999-9999');   
+// });
 
