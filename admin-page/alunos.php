@@ -15,7 +15,7 @@ if ($result->num_rows > 0) {
         echo "<td>{$row['Email']}</td>";
         echo "<td>{$row['Ra']}</td>";
         echo "<td>{$row['Telefone']}</td>";
-        echo "<td><img src='data:image/jpeg;base64," . base64_encode($row['Foto_aluno']) . "' width='100' height='100' /></td>";
+        echo "<td><img src='data:image/jpeg;base64," . base64_encode($row['foto_aluno']) . "' width='100' height='100' /></td>";
         echo "<td>";
         echo "<a href='alunos_edit.php?cpf={$row['CPF']}' class='btn btn-warning'>Editar</a> ";
         echo "<a href='alunos_delete.php?cpf={$row['CPF']}' class='btn btn-danger'>Excluir</a>";

@@ -77,7 +77,7 @@ $(document).ready(function (){
 });
 
 
-document.getElementById('foto').addEventListener('change', function() {
+document.getElementById('fotoAluno').addEventListener('change', function() {
     const fileInput = this;
     const filePath = fileInput.value;
     const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
