@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.getElementById('sair').addEventListener('click', function () {
-      window.location.href = '../logout/logout.php';
+    window.location.href = '../homepage/index.php?logout=true';
   });
 });
 
