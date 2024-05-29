@@ -7,8 +7,7 @@ if (isset($_SESSION['emailaluno'])) {
 
     $sql = "SELECT cpf, nome, ra, email, telefone, foto_aluno FROM aluno_puc WHERE email=?";
     $stmt = $conn->prepare($sql);
-    
-    // Verifica se a preparação da consulta foi bem-sucedida
+
     if ($stmt) {
         $stmt->bind_param('s', $email_login);
         $stmt->execute();
@@ -34,10 +33,10 @@ if (isset($_SESSION['emailaluno'])) {
     header("Location: ../login/login.php");
     exit();
 }
-
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,6 +46,7 @@ if (isset($_SESSION['emailaluno'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./aluno_page.css">
 </head>
+
 <body>
     <div class="wrapper">
         <aside id="sidebar">
@@ -59,6 +59,12 @@ if (isset($_SESSION['emailaluno'])) {
                 </div>
             </div>
             <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a class="sidebar-link" id="editar-perfil-aluno" onclick="redirecionarEditarPerfilAluno()">
+                        <i class="lni lni-pencil"></i>
+                        <span>Editar Perfil</span>
+                    </a>
+                </li>
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link" data-target="aluno_projeto.php" data-category="Seu Projeto">
                         <i class="lni lni-rocket"></i>
@@ -73,12 +79,11 @@ if (isset($_SESSION['emailaluno'])) {
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a onclick="redirecionar()" id="sair" class="sidebar-link">
-                    <i class="lni lni-exit"></i>
-                    <span>Sair</span>
+                <a onclick="redirecionar()" id="home" class="sidebar-link">
+                    <i class="lni lni-home"></i>
+                    <span>Home</span>
                 </a>
             </div>
-            
         </aside>
         <div class="main">
             <nav class="navbar navbar-expand px-4 py-3">
@@ -94,11 +99,10 @@ if (isset($_SESSION['emailaluno'])) {
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <?php echo "<img src='data:image/jpeg;base64," . base64_encode($row['foto_aluno']) . "' class='avatar img-fluid' alt=''>";?>
+                                <?php echo "<img src='data:image/jpeg;base64," . base64_encode($row['foto_aluno']) . "' class='avatar img-fluid' alt=''>"; ?>
                                 <?php echo $email_login; ?>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-end rounded">
-                            </div>
+                            <div class="dropdown-menu dropdown-menu-end rounded"></div>
                         </li>
                     </ul>
                 </div>
@@ -123,4 +127,5 @@ if (isset($_SESSION['emailaluno'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pF3WhENqqXJlSS7XebYpZ30clWs0U7S/J5nTrWplzOHny/jI/03F5I6sjmQJ5iBA" crossorigin="anonymous"></script>
     <script src="./aluno_page.js"></script>
 </body>
+
 </html>
