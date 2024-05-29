@@ -2,7 +2,39 @@
 session_start();
 require '../conexaobd/conexao.php';
 
-$emailAluno = isset($_SESSION['emailaluno']) ? $_SESSION['emailaluno'] : '';
+if (isset($_SESSION['emailaluno'])) {
+    $email_login = $_SESSION['emailaluno'];
+
+    $sql = "SELECT cpf, nome, ra, email, telefone, foto_aluno FROM aluno_puc WHERE email=?";
+    $stmt = $conn->prepare($sql);
+    
+    // Verifica se a preparação da consulta foi bem-sucedida
+    if ($stmt) {
+        $stmt->bind_param('s', $email_login);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $nome = $row["nome"];
+            $cpf = $row["cpf"];
+            $ra = $row["ra"];
+            $email = $row["email"];
+            $telefone = $row["telefone"];
+            $fotoAluno = $row["foto_aluno"];
+        } else {
+            echo "Usuário não encontrado.";
+            exit();
+        }
+    } else {
+        echo "Erro na preparação da consulta SQL.";
+        exit();
+    }
+} else {
+    header("Location: ../login/login.php");
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,8 +94,8 @@ $emailAluno = isset($_SESSION['emailaluno']) ? $_SESSION['emailaluno'] : '';
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="/account.png" class="avatar img-fluid" alt="">
-                                <?php echo $emailAluno; ?>
+                                <?php echo "<img src='data:image/jpeg;base64," . base64_encode($row['foto_aluno']) . "' class='avatar img-fluid' alt=''>";?>
+                                <?php echo $email_login; ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded">
                             </div>
