@@ -18,7 +18,7 @@ if (isset($_SESSION['emailcolaborador']) || isset($_SESSION['emailempresa']) || 
 if (isset($_SESSION['emailcolaborador'])) {
     $loggedInEmail = $_SESSION['emailcolaborador'];
     $buttonText = "Dashboard";
-    $buttonLink = "../admin-page/admin_page.php";
+    $buttonLink = "../pagina-colaborador/pagina_colaborador.php";
 } elseif (isset($_SESSION['emailempresa'])) {
     $loggedInEmail = $_SESSION['emailempresa'];
     $buttonText = "CriarProjetos";
