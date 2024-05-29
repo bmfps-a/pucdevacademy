@@ -1,8 +1,19 @@
 <?php
 session_start();
-include("../conexaobd/conexao.php");
-if (!isset($_SESSION['emailempresa']) and !isset($_SESSION['fk_Empresa_CNPJ'])) {
-    header("Location: ../homepage/index.php");
+require '../conexaobd/conexao.php';
+
+if (isset($_SESSION['emailempresa'])) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) {
+        session_unset();
+        session_destroy();
+        header("Location: ../homepage/index.php?logout=true");
+        exit();
+    }
+    $_SESSION['LAST_ACTIVITY'] = time();
+
+    $email_login = $_SESSION['emailempresa'];
+} else {
+    header("Location: ../login/login.php");
     exit();
 }
 ?>
