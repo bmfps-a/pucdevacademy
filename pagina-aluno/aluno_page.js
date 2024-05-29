@@ -49,3 +49,12 @@ document.querySelectorAll('.sidebar-link').forEach(link => {
         }
     });
 });
+function searchContent() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const content = document.getElementById('content');
+  if (!input) {
+      content.style.display = "";
+      return;
+  }
+  content.style.display = content.innerHTML.toLowerCase().includes(input) ? "" : "none";
+}

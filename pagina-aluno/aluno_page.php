@@ -102,8 +102,8 @@ if (isset($_SESSION['emailaluno'])) {
             <nav class="navbar navbar-expand px-4 py-3">
                 <form action="#" class="d-none d-sm-inline-block">
                     <div class="input-group input-group-navbar">
-                        <input type="text" class="form-control border-0 rounder-0" placeholder="Pesquisar...">
-                        <button class="btn border-0 rounder-0" type="button">
+                        <input type="text" id="searchInput" class="form-control border-0 rounder-0" placeholder="Pesquisar..." oninput="searchContent()">
+                        <button class="btn border-0 rounder-0" type="button" onclick="searchContent()">
                             Pesquisar
                         </button>
                     </div>
