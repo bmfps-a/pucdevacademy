@@ -9,15 +9,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         session_start();
+<<<<<<< HEAD
         $_SESSION["emailcolaborador"] = $email;
         $_SESSION["cpf_colaborador"] = $row["CPF"];
 
+=======
+>>>>>>> 88c97c19c785163a36f20374352970aace68a042
         if ($email === 'admin@pucpr.edu.br') {
             $_SESSION["emailadmin"] = $email;
             header("Location: ../admin-page/admin_page.php");
         }else{
             header("Location: ../pagina-colaborador/pagina_colaborador.php");
         }
+        else {
+            $_SESSION["emailcolaborador"] = $email;
+        }    
+
 
         
         exit();

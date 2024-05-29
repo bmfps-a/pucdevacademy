@@ -17,7 +17,7 @@ function enviar() {
     let senha = document.getElementById("senha").value
     let confirmarSenha = document.getElementById("confirmarSenha").value
     let MensagemConfirmarSenha = document.getElementById("mensagem-confirmarSenha")
-    let campos = ["nome", "cpf", "ra", "tel", "email", "senha"];
+    let campos = ["nomeEmpresa", "cnpj", "nomeRepresentante", "nomeFic", "ramo", "cpf", "cargo", "tel", "email", "senha",];
         
     campos.forEach(function(campo) {
         if (!validar(campo)) {
@@ -34,9 +34,13 @@ function enviar() {
     }
     if (camposValidos === true) {
         console.log("Valores: ")
-        console.log(document.getElementById("nome").value)
+        console.log(document.getElementById("nomeEmpresa").value)
+        console.log(document.getElementById("cnpj").value)
+        console.log(document.getElementById("nomeRepresentante").value)
+        console.log(document.getElementById("nomeFic").value)
+        console.log(document.getElementById("ramo").value)
         console.log(document.getElementById("cpf").value)
-        console.log(document.getElementById("ra").value)
+        console.log(document.getElementById("cargo").value)
         console.log(document.getElementById("tel").value)
         console.log(document.getElementById("email").value)
         console.log(document.getElementById("senha").value)
@@ -46,13 +50,25 @@ function enviar() {
     return false
 }
 
-
 $(document).ready(function() {
-    $('#nome').inputmask({
+    $('#cnpj').inputmask('99.999.999/0009-99');
+    $('#nomeRepresentante').inputmask({
+        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
+        greedy: false
+    });
+    $('#nomeFic').inputmask({
+        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
+        greedy: false
+    });
+    $('#ramo').inputmask({
         regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
         greedy: false
     });
     $('#cpf').inputmask('999.999.999-99');
-    $('#ra').inputmask('99999999');
+        
+    $('#cargo').inputmask({
+        regex: "[A-Za-zÀ-ÖØ-öø-ÿçÇ ]*",
+        greedy: false
+    });
     $('#tel').inputmask('(99) 99999-9999');   
 });

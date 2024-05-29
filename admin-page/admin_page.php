@@ -2,41 +2,21 @@
 session_start();
 require '../conexaobd/conexao.php';
 
-if (isset($_SESSION['emailcolaborador'])) {
-    $email_login = $_SESSION['emailcolaborador'];
-
-    // Verifique se a conexão foi estabelecida com sucesso
-    if (!$conn) {
-        die("Falha na conexão com o banco de dados: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT cpf, nome, ra, email, telefone, foto_colaborador FROM colaborador_puc WHERE email=?";
-    $stmt = $conn->prepare($sql);
-
-    if ($stmt) {
-        $stmt->bind_param('s', $email_login);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $email = $row["email"];
-            $fotoColaborador = $row["foto_colaborador"];
-        } else {
-            echo "Usuário não encontrado.";
-            exit();
-        }
-    } else {
-        // Exibir erro específico da preparação da consulta
-        echo "Erro na preparação da consulta SQL: " . $conn->error;
+if (isset($_SESSION['emailadmin'])) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) {
+        session_unset();
+        session_destroy();
+        header("Location: ../homepage/index.php?logout=true");
         exit();
     }
+    $_SESSION['LAST_ACTIVITY'] = time();
+
+    $email_login = $_SESSION['emailadmin'];
 } else {
     header("Location: ../login/login.php");
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -94,9 +74,13 @@ if (isset($_SESSION['emailcolaborador'])) {
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a onclick="redirecionar()" id="sair" class="sidebar-link">
-                    <i class="lni lni-exit"></i>
+                <a onclick="redirecionar()" id="home" class="sidebar-link">
+                    <i class="lni lni-home"></i>
                     <span>Sair</span>
+                </a>
+                <a onclick="logout()" id="logout" class="sidebar-link">
+                    <i class="lni lni-exit"></i>
+                    <span>Logout</span>
                 </a>
             </div>
         </aside>
@@ -112,13 +96,7 @@ if (isset($_SESSION['emailcolaborador'])) {
                 </form>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <?php echo "<img src='data:image/jpeg;base64," . base64_encode($row['foto_colaborador']) . "' class='avatar img-fluid' alt=''>"; ?>
-                                <?php echo $email_login; ?>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end rounded"></div>
-                        </li>
+                        <!-- Navbar content unchanged -->
                     </ul>
                 </div>
             </nav>
@@ -126,7 +104,8 @@ if (isset($_SESSION['emailcolaborador'])) {
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
                         <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                            <img src="" class="avatar img-fluid" alt="">
+                            <?php echo "<img src='data:image/jpeg;base64," . base64_encode($row['foto_colaborador']) . "' class='avatar img-fluid' alt=''>"; ?>
+                            <?php echo $email_login; ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end rounded">
                         </div>
@@ -150,7 +129,8 @@ if (isset($_SESSION['emailcolaborador'])) {
             </footer>
         </div>
     </div>
-    <script src="./admin_page.js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zO0RSMMkUJwS4rFMz3TZWHUAQ+GTkd5obAbycQ3iAgd7av5bgcYJYKEQWSGAirDy" crossorigin="anonymous">
+    <script src="./admin_page.js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-bydfCKsORAKpuKyTzTrIk4QlilqXP7/Injc3mT3vz96lteiqoByzptTjtt7Vyzav" crossorigin="anonymous">
     </script>
 
 </body>
