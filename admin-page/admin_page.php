@@ -1,22 +1,3 @@
-<?php
-session_start();
-require '../conexaobd/conexao.php';
-
-if (isset($_SESSION['emailadmin'])) {
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) {
-        session_unset();
-        session_destroy();
-        header("Location: ../homepage/index.php?logout=true");
-        exit();
-    }
-    $_SESSION['LAST_ACTIVITY'] = time();
-
-    $email_login = $_SESSION['emailadmin'];
-} else {
-    header("Location: ../login/login.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html>
 
@@ -26,8 +7,9 @@ if (isset($_SESSION['emailadmin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página do Administrador</title>
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="admin_page.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./admin_page.css">
 </head>
 
 <body>
@@ -42,12 +24,6 @@ if (isset($_SESSION['emailadmin'])) {
                 </div>
             </div>
             <ul class="sidebar-nav">
-                <li class="sidebar-item">
-                    <a class="sidebar-link" id="editarPerfil" onclick="redirecionarEditarPerfil()">
-                        <i class="lni lni-pencil"></i>
-                        <span>Editar Perfil</span>
-                    </a>
-                </li>
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link" data-target="alunos.php" data-category="Alunos">
                         <i class="lni lni-user"></i>
@@ -74,44 +50,33 @@ if (isset($_SESSION['emailadmin'])) {
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a onclick="redirecionar()" id="home" class="sidebar-link">
-                    <i class="lni lni-home"></i>
-                    <span>Sair</span>
-                </a>
-                <a onclick="logout()" id="logout" class="sidebar-link">
+                <a onclick="redirecionar()" id="sair" class="sidebar-link">
                     <i class="lni lni-exit"></i>
-                    <span>Logout</span>
+                    <span>Sair</span>
                 </a>
             </div>
         </aside>
         <div class="main">
             <nav class="navbar navbar-expand px-4 py-3">
-                <form class="d-none d-sm-inline-block" onsubmit="return false;">
+                <form action="#" class="d-none d-sm-inline-block">
                     <div class="input-group input-group-navbar">
-                        <input type="text" id="searchInput" class="form-control border-0 rounder-0" placeholder="Pesquisar..." oninput="searchContent()">
-                        <button class="btn border-0 rounder-0" type="button" onclick="searchContent()">
+                        <input type="text" class="form-control border-0 rounder-0" placeholder="Pesquisar...">
+                        <button class="btn border-0 rounder-0" type="button">
                             Pesquisar
                         </button>
                     </div>
                 </form>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
-                        <!-- Navbar content unchanged -->
+                        <li class="nav-item dropdown">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                                <img src="/account.png" class="avatar img-fluid" alt="">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end rounded">
+                            </div>
+                        </li>
                     </ul>
                 </div>
-            </nav>
-            <div class="navbar-collapse collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
-                        <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                            <?php echo "<img src='data:image/jpeg;base64," . base64_encode($row['foto_colaborador']) . "' class='avatar img-fluid' alt=''>"; ?>
-                            <?php echo $email_login; ?>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end rounded">
-                        </div>
-                    </li>
-                </ul>
-            </div>
             </nav>
             <main class="content px-3 py-4" id="content">
                 <!-- Conteúdo dinâmico será carregado aqui -->
@@ -129,11 +94,24 @@ if (isset($_SESSION['emailadmin'])) {
             </footer>
         </div>
     </div>
-    <script src="admin_page.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-bydfCKsORAKpuKyTzTrIk4QlilqXP7/Injc3mT3vz96lteiqoByzptTjtt7Vyzav" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pF3WhENqqXJlSS7XebYpZ30clWs0U7S/J5nTrWplzOHny/jI/03F5I6sjmQJ5iBA" crossorigin="anonymous">
     </script>
-
+    <script src="./admin_page.js"></script>
+    <script>
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = this.getAttribute('data-target');
+                const category = this.getAttribute('data-category'); // Adicionando a captura do nome da categoria
+                fetch(target)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('content').innerHTML = `<h2>${category}</h2>` + data; // Exibindo o nome da categoria
+                    });
+            });
+        });
+    </script>
 </body>
 
 </html>

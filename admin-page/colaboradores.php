@@ -15,7 +15,13 @@ if ($result->num_rows > 0) {
         echo "<td>{$row['Email']}</td>";
         echo "<td>{$row['RA']}</td>";
         echo "<td>{$row['Telefone']}</td>";
-        echo "<td><img src='data:image/jpeg;base64," . base64_encode($row['foto_colaborador']) . "' width='100' height='100' /></td>";
+        echo "<td>";
+        if (isset($row['foto_colaborador'])) {
+            echo "<img src='data:image/jpeg;base64," . base64_encode($row['foto_colaborador']) . "' width='100' height='100' />";
+        } else {
+            echo "Sem foto";
+        }
+        echo "</td>";
         echo "<td>";
         echo "<a href='colaboradores_edit.php?cpf={$row['CPF']}' class='btn btn-warning'>Editar</a> ";
         echo "<a href='colaboradores_delete.php?cpf={$row['CPF']}' class='btn btn-danger'>Excluir</a>";
@@ -29,3 +35,4 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
+

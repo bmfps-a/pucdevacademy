@@ -5,7 +5,7 @@ require '../conexaobd/conexao.php';
 if (isset($_GET['cpf'])) {
     $cpf = $_GET['cpf'];
 
-    $sql = "SELECT * FROM aluno_puc WHERE CPF = ?";
+    $sql = "SELECT * FROM Colaborador_Puc WHERE CPF = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $cpf);
     $stmt->execute();
@@ -14,16 +14,15 @@ if (isset($_GET['cpf'])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $nome = $row["Nome"];
-        $cpf = $row["CPF"];
-        $ra = $row["Ra"];
         $email = $row["Email"];
+        $ra = $row["RA"];
         $telefone = $row["Telefone"];
     } else {
-        echo "Usuário não encontrado.";
+        echo "Colaborador não encontrado.";
         exit();
     }
 } else {
-    header("Location: ../admin-page/alunos.php");
+    header("Location: ../admin-page/colaboradores.php");
     exit();
 }
 ?>
@@ -45,42 +44,39 @@ if (isset($_GET['cpf'])) {
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- CSS DO PROJETO -->
-    <link rel="stylesheet" href="../admin-page/alunos_edit.css">
+    <link rel="stylesheet" href="../admin-page/colaboradores_edit.css">
     <!-- JavaScript bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title>Editar Dados do Aluno</title>
+    <title>Editar Colaborador</title>
 </head>
 
 <body>
+    <a href="../admin-page/admin_page.php" class="btn-voltar"><i class="bi bi-arrow-left"></i><span id="btnBack">Voltar</span></a>
     <div class="container-lg bg-color-black">
-        <a href="../admin-page/admin_page.php" class="btn-voltar"><i class="bi bi-arrow-left"></i><span id="btnBack">Voltar</span></a>
         <div class="caixa">
-            <h1 class="titulo">Editar Dados do Aluno</h1>
-            <form id="editar" action="aluno_update.php" method="post">
+            <h1 class="titulo">Editar Colaborador</h1>
+            <form action="colaboradores_update.php" method="POST">
+                <input type="hidden" name="cpf" value="<?php echo $cpf; ?>">
                 <div class="row mb-3">
                     <div class="col-lg-6">
-                        <label for="nome">Nome</label>
-                        <input type="text" value="<?php echo htmlspecialchars($nome); ?>" class="form-control" id="nome" name="nome" pattern="(?:[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*[A-Za-zÀ-ÖØ-öø-ÿçÇ]){4}[A-Za-zÀ-ÖØ-öø-ÿçÇ\s]*" maxlength="50" required>
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" value="<?php echo $nome; ?>" class="form-control" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="cpf">CPF</label>
-                        <input type="text" value="<?php echo htmlspecialchars($cpf); ?>" class="form-control" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="<?php echo $email; ?>" class="form-control" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="ra">RA</label>
-                        <input type="text" value="<?php echo htmlspecialchars($ra); ?>" class="form-control" id="ra" name="ra" pattern="\d{8}" required>
+                        <label for="ra">RA:</label>
+                        <input type="text" id="ra" name="ra" value="<?php echo $ra; ?>" class="form-control" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="email">E-mail</label>
-                        <input type="email" value="<?php echo htmlspecialchars($email); ?>" class="form-control" id="email" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" maxlength="50" required>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="telefone">Telefone</label>
-                        <input type="tel" value="<?php echo htmlspecialchars($telefone); ?>" class="form-control" id="tel" name="telefone" pattern="(\(\d{2}\) \d{5}-\d{4}|(\d{2} [89]\d{4}-\d{4}))" required>
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" value="<?php echo $telefone; ?>" class="form-control" required>
                     </div>
                 </div>
                 <hr class="mt-4">
-                <button type="submit" class="btn btn-primary">Atualizar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
             </form>
         </div>
     </div>

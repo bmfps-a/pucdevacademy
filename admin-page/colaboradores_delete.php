@@ -6,48 +6,50 @@ require '../conexaobd/conexao.php';
 if (isset($_GET['cpf'])) {
     $cpf = $_GET['cpf'];
 
-    // Consulta SQL para selecionar o aluno pelo CPF
-    $sql = "SELECT * FROM Aluno_puc WHERE CPF = ?";
+    // Consulta SQL para selecionar o colaborador pelo CPF
+    $sql = "SELECT * FROM Colaborador_Puc WHERE CPF = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $cpf);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Verifica se o aluno foi encontrado
+    // Verifica se o colaborador foi encontrado
     if ($result->num_rows > 0) {
-        // Exibe os dados do aluno
+        // Exibe os dados do colaborador
         $row = $result->fetch_assoc();
         $nome = $row["Nome"];
         $email = $row["Email"];
-        $ra = $row["Ra"];
+        $ra = $row["RA"];
         $telefone = $row["Telefone"];
-        $fotoAluno = $row["Foto_aluno"];
+        // Verifica se a chave "foto_colaborador" está definida no array $row
+        $fotoColaborador = isset($row["foto_colaborador"]) ? $row["foto_colaborador"] : null;
     } else {
-        // Se o aluno não foi encontrado, redireciona para a página anterior
-        header("Location: alunos.php");
+        // Se o colaborador não foi encontrado, redireciona para a página anterior
+        header("Location: admin_page.php");
         exit();
     }
 } else {
     // Se o CPF não foi enviado via GET, redireciona para a página anterior
-    header("Location: alunos.php");
+    header("Location: admin_page.php");
     exit();
 }
 
 // Verifica se o formulário de confirmação foi enviado via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirmacao'])) {
     // Se a confirmação foi recebida, realiza a exclusão
-    $sql_delete = "DELETE FROM Aluno_puc WHERE CPF = ?";
+    $sql_delete = "DELETE FROM Colaborador_Puc WHERE CPF = ?";
     $stmt_delete = $conn->prepare($sql_delete);
     $stmt_delete->bind_param("s", $cpf);
     $stmt_delete->execute();
 
     // Redireciona para a página anterior após a exclusão
-    header("Location: admin_page.php");
+    header("Location: ../admin-page/admin_page.php");
     exit();
 }
 
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -84,7 +86,7 @@ $conn->close();
 <body>
     <div class="container">
         <h1 class="text-center mb-4">Confirmação de Exclusão</h1>
-        <p>Você está prestes a excluir o aluno:</p>
+        <p>Você está prestes a excluir o colaborador:</p>
         <ul>
             <li><strong>Nome:</strong> <?php echo $nome; ?></li>
             <li><strong>Email:</strong> <?php echo $email; ?></li>
@@ -95,7 +97,7 @@ $conn->close();
         <form method="post">
             <input type="hidden" name="confirmacao" value="confirmado">
             <button type="submit" class="btn btn-danger btn-confirmar">Confirmar Exclusão</button>
-            <a href="alunos.php" class="btn btn-secondary btn-cancelar">Cancelar</a>
+            <a href="colaboradores.php" class="btn btn-secondary btn-cancelar">Cancelar</a>
         </form>
     </div>
 
