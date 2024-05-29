@@ -58,7 +58,7 @@ if (isset($_SESSION['emailcolaborador'])) {
 
 <body>
     <div class="container-lg bg-color-black">
-        <a href="../admin-page/admin_page.php" class="btn-voltar"><i class="bi bi-arrow-left"></i><span id="btnBack">Voltar</span></a>
+        <a href="../pagina-colaborador/pagina_colaborador.php" class="btn-voltar"><i class="bi bi-arrow-left"></i><span id="btnBack">Voltar</span></a>
         <div class="caixa">
             <h1 class="titulo">Editar Perfil</h1>
             <form id="editar" action="back_editar_perfil.php" method="post" enctype="multipart/form-data">

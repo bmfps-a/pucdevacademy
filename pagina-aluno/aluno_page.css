@@ -173,6 +173,9 @@ a.sidebar-link:hover {
     width: 40px;
 }
 
+.sidebar-link {
+    cursor: pointer;
+}
 
 
 @media (min-width: 768px) {}
