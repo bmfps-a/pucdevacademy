@@ -12,6 +12,22 @@ function redirecionarEditarPerfil() {
   window.location.href = '../editar_perfil/editar_perfil.php';
 }
 
+function logout() {
+    window.location.href = '../homepage/index.php?logout=true';
+  }
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch('check_session.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.sessionExpired) {
+                alert('Sua sessão expirou. Por favor, atualize a página para continuar.');
+                window.location.reload();
+            }
+        })
+        .catch(error => console.error('Erro:', error));
+  });
+
 document.getElementById('sair').addEventListener('click', redirecionar);
 
 document.getElementById('editarPerfil').addEventListener('click', function(e) {
