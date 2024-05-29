@@ -16,8 +16,8 @@ if ($result->num_rows > 0) {
         echo "<td>{$row['Ramo_empresarial']}</td>";
         echo "<td>{$row['Telefone']}</td>";
         echo "<td>";
-        echo "<a href='empresas_edit.php?cnpj={$row['CNPJ']}' class='btn btn-warning'>Editar</a> ";
-        echo "<a href='empresas_delete.php?cnpj={$row['CNPJ']}' class='btn btn-danger'>Excluir</a>";
+        echo "<a href='empresa_edit.php?cnpj={$row['CNPJ']}' class='btn btn-warning'>Editar</a> ";
+        echo "<a href='empresa_delete.php?cnpj={$row['CNPJ']}' class='btn btn-danger'>Excluir</a>";
         echo "</td>";
         echo "</tr>";
     }
@@ -28,3 +28,4 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
+
