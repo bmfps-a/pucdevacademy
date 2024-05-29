@@ -1,5 +1,5 @@
 <?php
-/*session_start();
+session_start();
 require '../conexaobd/conexao.php';
 
 if (isset($_GET['cpf'])) {
@@ -25,7 +25,7 @@ if (isset($_GET['cpf'])) {
 } else {
     header("Location: ../admin-page/alunos.php");
     exit();
-}*/
+}
 
 ?>
 
@@ -59,7 +59,7 @@ if (isset($_GET['cpf'])) {
         <a href="../admin-page/admin_page.php" class="btn-voltar"><i class="bi bi-arrow-left"></i><span id="btnBack">Voltar</span></a>
         <div class="caixa">
             <h1 class="titulo">Editar Dados do Aluno</h1>
-            <form id="editar" action="alunos_update.php" method="post" enctype="multipart/form-data">
+            <form id="editar" action="aluno_update.php" method="post" enctype="multipart/form-data">
                 <div class="row mb-3">
                     <div class="col-lg-6">
                         <label for="nome">Nome</label>
@@ -125,7 +125,7 @@ if (isset($_GET['cpf'])) {
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
-    <script src="../editar_perfil/editar_perfil.js"></script>
+    <script src="../admin-page/alunos_edit.js"></script>
 </body>
 
 </html>
