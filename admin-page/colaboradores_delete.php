@@ -97,7 +97,7 @@ $conn->close();
         <form method="post">
             <input type="hidden" name="confirmacao" value="confirmado">
             <button type="submit" class="btn btn-danger btn-confirmar">Confirmar Exclusão</button>
-            <a href="colaboradores.php" class="btn btn-secondary btn-cancelar">Cancelar</a>
+            <a href="admin_page.php" class="btn btn-secondary btn-cancelar">Cancelar</a>
         </form>
     </div>
 
