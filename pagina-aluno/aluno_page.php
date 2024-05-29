@@ -83,6 +83,10 @@ if (isset($_SESSION['emailaluno'])) {
                     <i class="lni lni-home"></i>
                     <span>Home</span>
                 </a>
+                <a type="submit" id="sair" class="sidebar-link">
+                    <i class="lni lni-exit"></i>
+                    <span>Logout</span>
+                </a>
             </div>
         </aside>
         <div class="main">
