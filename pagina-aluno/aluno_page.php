@@ -3,6 +3,14 @@ session_start();
 require '../conexaobd/conexao.php';
 
 if (isset($_SESSION['emailaluno'])) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) {
+        session_unset();
+        session_destroy();
+        header("Location: ../homepage/index.php?logout=true");
+        exit();
+    }
+    $_SESSION['LAST_ACTIVITY'] = time();
+
     $email_login = $_SESSION['emailaluno'];
 
     $sql = "SELECT cpf, nome, ra, email, telefone, foto_aluno FROM aluno_puc WHERE email=?";
@@ -15,7 +23,11 @@ if (isset($_SESSION['emailaluno'])) {
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
+            $nome = $row["nome"];
+            $cpf = $row["cpf"];
+            $ra = $row["ra"];
             $email = $row["email"];
+            $telefone = $row["telefone"];
             $fotoAluno = $row["foto_aluno"];
         } else {
             echo "Usuário não encontrado.";
@@ -25,6 +37,7 @@ if (isset($_SESSION['emailaluno'])) {
         echo "Erro na preparação da consulta SQL.";
         exit();
     }
+
 } else {
     header("Location: ../login/login.php");
     exit();
@@ -79,7 +92,7 @@ if (isset($_SESSION['emailaluno'])) {
                     <i class="lni lni-home"></i>
                     <span>Home</span>
                 </a>
-                <a type="submit" id="sair" class="sidebar-link">
+                <a onclick="logout()" id="logout" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
@@ -124,7 +137,7 @@ if (isset($_SESSION['emailaluno'])) {
             </footer>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pF3WhENqqXJlSS7XebYpZ30clWs0U7S/J5nTrWplzOHny/jI/03F5I6sjmQJ5iBA" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="./aluno_page.js"></script>
 </body>
 
