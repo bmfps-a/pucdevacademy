@@ -27,7 +27,7 @@ if (isset($_SESSION['emailadmin'])) {
     <title>Página do Administrador</title>
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="./admin_page.css">
+    <link rel="stylesheet" href="admin_page.css">
 </head>
 
 <body>
@@ -129,7 +129,8 @@ if (isset($_SESSION['emailadmin'])) {
             </footer>
         </div>
     </div>
-    <script src="./admin_page.js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    <script src="admin_page.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-bydfCKsORAKpuKyTzTrIk4QlilqXP7/Injc3mT3vz96lteiqoByzptTjtt7Vyzav" crossorigin="anonymous">
     </script>
 

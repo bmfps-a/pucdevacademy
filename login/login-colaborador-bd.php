@@ -8,29 +8,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc(); // Obtém os dados do banco de dados
         session_start();
-<<<<<<< HEAD
         $_SESSION["emailcolaborador"] = $email;
         $_SESSION["cpf_colaborador"] = $row["CPF"];
-
-=======
->>>>>>> 88c97c19c785163a36f20374352970aace68a042
         if ($email === 'admin@pucpr.edu.br') {
             $_SESSION["emailadmin"] = $email;
             header("Location: ../admin-page/admin_page.php");
-        }else{
+            exit(); // Importante: encerre o script após redirecionamento
+        } else {
             header("Location: ../pagina-colaborador/pagina_colaborador.php");
+            exit(); // Importante: encerre o script após redirecionamento
         }
-        else {
-            $_SESSION["emailcolaborador"] = $email;
-        }    
-
-
-        
-        exit();
     } else {
         echo "Usuário ou senha incorretos!";
         header("refresh:2; url=login.php");
+        exit(); // Importante: encerre o script após redirecionamento
     }
 }
 
