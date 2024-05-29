@@ -41,6 +41,13 @@ if (isset($_POST['logout'])) {
     header("Location: ../homepage/index.php");
     exit();
 }
+
+if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
+    session_unset();
+    session_destroy();
+    header("Location: ../homepage/index.php");
+    exit();
+}    
 ?>
 
 <!DOCTYPE html>
