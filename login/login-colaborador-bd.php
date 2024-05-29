@@ -9,11 +9,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         session_start();
-        $_SESSION["emailcolaborador"] = $email;
-
         if ($email === 'admin@pucpr.edu.br') {
             $_SESSION["emailadmin"] = $email;
         }
+        else {
+            $_SESSION["emailcolaborador"] = $email;
+        }    
+
 
         header("Location: ../admin-page/admin_page.php");
         exit();
