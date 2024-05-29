@@ -1,3 +1,42 @@
+<?php
+session_start();
+require '../conexaobd/conexao.php';
+
+if (isset($_SESSION['emailcolaborador'])) {
+    $email_login = $_SESSION['emailcolaborador'];
+
+    // Verifique se a conexão foi estabelecida com sucesso
+    if (!$conn) {
+        die("Falha na conexão com o banco de dados: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT cpf, nome, ra, email, telefone, foto_colaborador FROM colaborador_puc WHERE email=?";
+    $stmt = $conn->prepare($sql);
+
+    if ($stmt) {
+        $stmt->bind_param('s', $email_login);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $email = $row["email"];
+            $fotoColaborador = $row["foto_colaborador"];
+        } else {
+            echo "Usuário não encontrado.";
+            exit();
+        }
+    } else {
+        // Exibir erro específico da preparação da consulta
+        echo "Erro na preparação da consulta SQL: " . $conn->error;
+        exit();
+    }
+} else {
+    header("Location: ../login/login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -73,7 +112,13 @@
                 </form>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
-                        <!-- Navbar content unchanged -->
+                        <li class="nav-item dropdown">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                                <?php echo "<img src='data:image/jpeg;base64," . base64_encode($row['foto_colaborador']) . "' class='avatar img-fluid' alt=''>"; ?>
+                                <?php echo $email_login; ?>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end rounded"></div>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -105,8 +150,7 @@
             </footer>
         </div>
     </div>
-    <script src="./admin_page.js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-zO0RSMMkUJwS4rFMz3TZWHUAQ+GTkd5obAbycQ3iAgd7av5bgcYJYKEQWSGAirDy" crossorigin="anonymous">
+    <script src="./admin_page.js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zO0RSMMkUJwS4rFMz3TZWHUAQ+GTkd5obAbycQ3iAgd7av5bgcYJYKEQWSGAirDy" crossorigin="anonymous">
     </script>
 
 </body>

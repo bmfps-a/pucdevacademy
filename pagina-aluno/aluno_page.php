@@ -15,11 +15,7 @@ if (isset($_SESSION['emailaluno'])) {
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            $nome = $row["nome"];
-            $cpf = $row["cpf"];
-            $ra = $row["ra"];
             $email = $row["email"];
-            $telefone = $row["telefone"];
             $fotoAluno = $row["foto_aluno"];
         } else {
             echo "Usuário não encontrado.";
