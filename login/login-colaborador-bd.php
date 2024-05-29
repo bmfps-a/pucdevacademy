@@ -10,12 +10,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         session_start();
         $_SESSION["emailcolaborador"] = $email;
+        $_SESSION["cpf_colaborador"] = $row["CPF"];
 
         if ($email === 'admin@pucpr.edu.br') {
             $_SESSION["emailadmin"] = $email;
+            header("Location: ../admin-page/admin_page.php");
+        }else{
+            header("Location: ../pagina-colaborador/pagina_colaborador.php");
         }
 
-        header("Location: ../admin-page/admin_page.php");
+        
         exit();
     } else {
         echo "Usuário ou senha incorretos!";
